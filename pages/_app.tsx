@@ -4,7 +4,6 @@ import Head from "next/head";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider } from "@emotion/react";
-import { Container } from "@mui/material";
 
 import Navbar from "../components/Navbar";
 
