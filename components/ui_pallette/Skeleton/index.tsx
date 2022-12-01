@@ -8,11 +8,11 @@ type SkeletonProps = {
 const Skeleton = ({ width, height }: SkeletonProps) => {
   return (
     <MuiSkeleton
-      width="100%"
-      height="100%"
+      width={width}
+      height={height}
       variant="rounded"
       animation="wave"
-      sx={{ bgcolor: "grey.200", borderRadius: "15px" }}
+      sx={{ borderRadius: "15px" }}
     />
   );
 };

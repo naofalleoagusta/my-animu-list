@@ -1,6 +1,6 @@
 const formatDate = (date: string) => {
   const newDate = new Date(date);
-  return `${newDate.getDate()}/${newDate.getMonth()}/${newDate.getFullYear()}`;
+  return `${newDate.getDate()}/${newDate.getMonth()+1}/${newDate.getFullYear()}`;
 };
 
 export default formatDate;

@@ -1,6 +1,6 @@
 import { Box, Container, styled } from "@mui/material";
 
-import Link from "../Link";
+import Link from "../ui_pallette/Link";
 
 import LINKS from "./constant";
 

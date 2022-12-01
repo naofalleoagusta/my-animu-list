@@ -10,7 +10,7 @@ const useAnimes = (param?: AnimeInputType) => {
     "animes"
   );
 
-  return { data, error, loading };
+  return { animes:data, error, loading };
 };
 
 export default useAnimes;

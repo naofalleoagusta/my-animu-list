@@ -2,21 +2,18 @@ import { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import BannerCard from "./components/BannerCard";
-import Skeleton from "../Skeleton";
-import Error from "../Error";
+import Skeleton from "../ui_pallette/Skeleton";
+import Error from "../ui_pallette/Error";
 
 import useAnimes from "../../helpers/hooks/useAnimes";
+
+import { ANIMES_QUERY_PARAM } from "./constant";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
 const Banner = () => {
-  const { data, error, loading } = useAnimes({
-    limit: "5",
-    sort: "desc",
-    min_score: "8.5",
-    start_date: "2022",
-  });
+  const { animes, error, loading } = useAnimes(ANIMES_QUERY_PARAM);
 
   if (error) {
     return <Error />;
@@ -40,7 +37,7 @@ const Banner = () => {
         delay: 2000,
       }}
     >
-      {data?.data.map((dtAnime, idx) => (
+      {animes?.data.map((dtAnime, idx) => (
         <SwiperSlide key={idx}>
           <BannerCard anime={dtAnime} />
         </SwiperSlide>

@@ -19,7 +19,12 @@ const Image = ({ src, alt, style, width, height, blurDataURL }: ImageProps) => {
       height={height}
       layout="responsive"
       loading="lazy"
-      style={style}
+      style={{
+        height: "auto",
+        width: "100%",
+        objectFit: "cover",
+        ...style,
+      }}
       blurDataURL={blurDataURL}
       quality={100}
       placeholder="blur"

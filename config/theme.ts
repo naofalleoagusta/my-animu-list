@@ -8,6 +8,15 @@ const COLORS = {
 };
 
 const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
   palette: {
     primary: {
       main: COLORS.blue,
@@ -24,7 +33,13 @@ const theme = createTheme({
     fontFamily: `Helvetica, Arial, sans-serif`,
     h1: {
       fontSize: "42px",
-      fontWeight: 700,
+      fontWeight: 800,
+      letterSpacing: "-1px",
+    },
+    h2: {
+      fontSize: "32px",
+      fontWeight: 800,
+      letterSpacing: "-1px",
     },
   },
   components: {

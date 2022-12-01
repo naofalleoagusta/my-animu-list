@@ -62,7 +62,7 @@ export const AnimesInputSchema = z.object({
   rating: AnimeRatingScheme,
   genres: z.optional(z.string()),
   genres_exclude: z.optional(z.string()),
-  order: AnimeOrderScheme,
+  order_by: AnimeOrderScheme,
   sort: AnimeSortScheme,
   letter: z.optional(z.string()),
   producers: z.optional(z.string()),

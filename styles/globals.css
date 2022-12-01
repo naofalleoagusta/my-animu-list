@@ -52,3 +52,27 @@ main {
     right: 5px;
   }
 }
+
+/* Scroll bar stylings */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fafbfc;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d0d9e0;
+  border-radius: 10px;
+  min-height: 10px;
+}
+
+html,
+body {
+  scrollbar-color: #d0d9e0 #fafbfc;
+  scrollbar-width: thin;
+}

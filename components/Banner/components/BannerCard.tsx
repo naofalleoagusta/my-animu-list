@@ -1,18 +1,13 @@
-import {
-  Box,
-  Grid,
-  styled,
-  Theme,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, Grid, styled, Typography } from "@mui/material";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
-import Chip from "../../Chip";
-import Image from "../../Image";
+import Chip from "../../ui_pallette/Chip";
+import Image from "../../ui_pallette/Image";
+
+import formatDate from "../../../helpers/formatDate";
 
 import { AnimeType } from "../../../types/anime";
-import formatDate from "../../../helpers/formatDate";
+import style from "./style";
 
 type BannerCardProps = {
   anime: AnimeType;
@@ -25,32 +20,14 @@ const SImage = styled(Image)(() => ({
 }));
 
 const BannerCard = ({ anime }: BannerCardProps) => {
-  const isMobile = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down("sm")
-  );
   return (
     <Grid
-      sx={{
-        backgroundColor: "white",
-        borderRadius: "15px",
-        height: "100%",
-      }}
+      sx={style.bannerContainer}
       container
       flexWrap="nowrap"
       flexDirection="row"
     >
-      <Grid
-        item
-        sx={{
-          flexBasis: "60%",
-          overflow: "hidden",
-          borderRadius: "15px 0 0 15px",
-          display: "flex",
-          maxWidth: "60%",
-          alignItems: "center",
-          height: "100%",
-        }}
-      >
+      <Grid item sx={style.imageBannerContainer}>
         <SImage
           src={anime.images.webp.large_image_url}
           alt={anime.title}
@@ -59,76 +36,22 @@ const BannerCard = ({ anime }: BannerCardProps) => {
           height={446}
         />
       </Grid>
-      <Grid
-        item
-        sx={{
-          flexBasis: "40%",
-          maxWidth: "40%",
-          padding: isMobile ? "12px" : "32px",
-        }}
-      >
-        <Box
-          sx={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            rowGap: "8px",
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              columnGap: "6px",
-              rowGap: "4px",
-              flexWrap: "wrap",
-            }}
-          >
+      <Grid item sx={style.contentBannerContainer}>
+        <Box sx={style.contentBannerWrapper}>
+          <Box sx={style.chipWrapper}>
             <Chip label={anime.type} />
             <Chip label={anime.status} />
-            {!isMobile && (
-              <>
-                <Chip label={`Source : ${anime.source}`} />
-              </>
-            )}
+            <Chip label={`Source : ${anime.source}`} sx={style.lastChip} />
           </Box>
-          <Typography
-            variant="h1"
-            sx={{
-              fontWeight: 800,
-              fontSize: "54px",
-              ...(isMobile && {
-                fontSize: "16px",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                wordBreak: "break-all",
-                display: "-webkit-box",
-                "-webkit-line-clamp": "2",
-                "-webkit-box-orient": "vertical",
-              }),
-            }}
-          >
+          <Typography variant="h1" sx={style.title}>
             {anime.title}
           </Typography>
-          <Box
-            sx={{
-              display: "flex",
-              columnGap: isMobile ? "5px" : "10px",
-              alignItems: "center",
-            }}
-          >
+          <Box sx={style.dateWrapper}>
             <CalendarMonthIcon
-              fontSize="small"
-              sx={{ fontSize: isMobile ? "12px" : "inherit" }}
+              sx={style.calendarIcon}
               color="secondary"
             />
-            <Typography
-              variant="caption"
-              sx={{
-                paddingTop: "3px",
-                fontSize: isMobile ? "9px" : "14px",
-                fontWeight: 600,
-              }}
-            >
+            <Typography variant="caption" sx={style.dateText}>
               {formatDate(anime.aired.from)}
               {!!anime.aired.to && ` - ${formatDate(anime.aired.to)}`}
             </Typography>

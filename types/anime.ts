@@ -1,7 +1,16 @@
 export type AnimesResType = {
   data: AnimeType[];
-  pagination: Pagination;
+  pagination: PaginationType;
 };
+
+export type AnimeRecommendationResType = {
+  data: Array<{ entry: AnimeRecommendationType }>;
+};
+
+export type AnimeRecommendationType = Pick<
+  AnimeType,
+  "mal_id" | "url" | "images" | "title"
+>;
 
 export type AnimeType = {
   mal_id: number;
@@ -22,8 +31,8 @@ export type AnimeType = {
   aired: AiredType;
   duration: string;
   rating: string;
-  score: number;
-  scored_by: number;
+  score: number | null;
+  scored_by: number | null;
   rank: number;
   popularity: number;
   members: number;
@@ -32,7 +41,7 @@ export type AnimeType = {
   background: string;
   season: string;
   year: number | null;
-  broadcast: Broadcast;
+  broadcast: BroadcastType;
   producers: DetailType[];
   licensors: DetailType[];
   studios: DetailType[];
@@ -89,21 +98,21 @@ export type DetailType = {
   url: string;
 };
 
-export interface Broadcast {
+export type BroadcastType = {
   day: string;
   time: string;
   timezone: string;
   string: string;
-}
+};
 
-export interface Pagination {
+export type PaginationType = {
   last_visible_page: number;
   has_next_page: boolean;
-  items: Items;
-}
+  items: ItemsType;
+};
 
-export interface Items {
+export type ItemsType = {
   count: number;
   total: number;
   per_page: number;
-}
+};

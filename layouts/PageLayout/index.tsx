@@ -18,8 +18,9 @@ const PageLayout = ({ banner, children }: PageLayoutProps) => {
       <Section
         sx={{
           bgcolor: "primary.main",
-          height: isMobile ? "200px" : "500px",
-          paddingBottom: "32px",
+          height: isMobile ? "200px" : "400px",
+          paddingBottom: "40px",
+          paddingTop: 0,
         }}
       >
         <Container
