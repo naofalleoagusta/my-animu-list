@@ -4,6 +4,8 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
+  scrollbar-color: #d0d9e0 #fafbfc;
+  scrollbar-width: thin;
 }
 
 header,
@@ -69,10 +71,4 @@ main {
   background: #d0d9e0;
   border-radius: 10px;
   min-height: 10px;
-}
-
-html,
-body {
-  scrollbar-color: #d0d9e0 #fafbfc;
-  scrollbar-width: thin;
 }

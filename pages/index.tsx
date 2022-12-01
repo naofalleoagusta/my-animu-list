@@ -2,12 +2,8 @@ import PageLayout from "../layouts/PageLayout";
 import Banner from "../components/Banner";
 import Section from "../components/Section";
 import ListAnime from "../components/ListAnime";
-import { AnimeInputType } from "../schema";
 
-type QueryListAnimeType = {
-  title: string;
-  param: AnimeInputType;
-};
+import { QueryListAnimeType } from "../types";
 
 const QUERIES_LIST_ANIME: QueryListAnimeType[] = [
   {
@@ -15,9 +11,18 @@ const QUERIES_LIST_ANIME: QueryListAnimeType[] = [
     param: {
       limit: "10",
       status: "airing",
-      order_by: "rank",
-      min_score: "8",
-      sort: "asc",
+      order_by: "score",
+      sort: "desc",
+      min_score: "5",
+    },
+  },
+  {
+    title: "Top Upcoming Anime",
+    param: {
+      limit: "10",
+      order_by: "members",
+      status: "upcoming",
+      sort: "desc",
     },
   },
 ];

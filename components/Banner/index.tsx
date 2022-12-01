@@ -37,7 +37,7 @@ const Banner = () => {
         delay: 2000,
       }}
     >
-      {animes?.data.map((dtAnime, idx) => (
+      {animes?.data?.map((dtAnime, idx) => (
         <SwiperSlide key={idx}>
           <BannerCard anime={dtAnime} />
         </SwiperSlide>

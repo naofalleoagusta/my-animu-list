@@ -3,6 +3,7 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 import Chip from "../../ui_pallette/Chip";
 import Image from "../../ui_pallette/Image";
+import ScoreCard from "../../ScoreCard";
 
 import formatDate from "../../../helpers/formatDate";
 
@@ -47,10 +48,7 @@ const BannerCard = ({ anime }: BannerCardProps) => {
             {anime.title}
           </Typography>
           <Box sx={style.dateWrapper}>
-            <CalendarMonthIcon
-              sx={style.calendarIcon}
-              color="secondary"
-            />
+            <CalendarMonthIcon sx={style.calendarIcon} color="secondary" />
             <Typography variant="caption" sx={style.dateText}>
               {formatDate(anime.aired.from)}
               {!!anime.aired.to && ` - ${formatDate(anime.aired.to)}`}

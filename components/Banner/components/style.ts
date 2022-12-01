@@ -1,4 +1,4 @@
-import { StyleType } from "../../../types/general";
+import { StyleType } from "../../../types";
 
 const style: StyleType = {
   bannerContainer: {
@@ -7,17 +7,26 @@ const style: StyleType = {
     borderRadius: "15px",
     overflow: "hidden",
   },
-  imageBannerContainer: {
-    flexBasis: "60%",
-    overflow: "hidden",
-    display: "flex",
-    maxWidth: "60%",
-    alignItems: "center",
-    height: "100%",
-  },
+  imageBannerContainer: [
+    {
+      flexBasis: "45%",
+      overflow: "hidden",
+      display: "flex",
+      maxWidth: "45%",
+      alignItems: "center",
+      height: "100%",
+      position: "relative",
+    },
+    () => ({
+      "& > img": {
+        height: "100%",
+        width: "auto",
+      },
+    }),
+  ],
   contentBannerContainer: {
-    flexBasis: "40%",
-    maxWidth: "40%",
+    flexBasis: "55%",
+    maxWidth: "55%",
     p: {
       xs: "12px",
       sm: "32px",
@@ -43,7 +52,7 @@ const style: StyleType = {
   },
   title: {
     fontWeight: 800,
-    fontSize: { xs: "16px", sm: "32px", lg: "42px" },
+    fontSize: { xs: "16px", sm: "24px", lg: "32px" },
     wordBreak: "break-all",
     overflow: {
       xs: "hidden",

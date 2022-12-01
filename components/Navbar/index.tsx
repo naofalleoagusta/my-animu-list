@@ -15,7 +15,11 @@ const Navbar = () => {
   return (
     <Box
       sx={{
-        bgcolor: "primary.main",
+        background: "transparent",
+        position: "absolute",
+        top: 0,
+        width: "100%",
+        zIndex: 100,
       }}
     >
       <header>
@@ -27,7 +31,6 @@ const Navbar = () => {
               paddingTop: "36px",
               paddingBottom: "36px",
               alignItems: "center",
-              bgcolor: "primary.main",
             }}
             maxWidth="lg"
           >

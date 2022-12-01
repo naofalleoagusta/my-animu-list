@@ -12,7 +12,7 @@ export default async function handler(
   try {
     const parsedReq = AnimesInputSchema.parse(req.query);
     const resData = await fetch(
-      `${API_BASE_URL}${generateQueryParam(parsedReq)}`
+      `${API_BASE_URL}${generateQueryParam({ ...parsedReq, sfw: "true" })}`
     );
     const data = await resData.json();
     return res.status(200).json({ animes: data });
