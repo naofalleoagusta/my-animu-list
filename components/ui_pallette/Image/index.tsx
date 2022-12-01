@@ -10,7 +10,21 @@ type ImageProps = {
   blurDataURL?: string;
 };
 
-const Image = ({ src, alt, style, width, height, blurDataURL }: ImageProps) => {
+const keyStr =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+
+const triplet = (e1: number, e2: number, e3: number) =>
+  keyStr.charAt(e1 >> 2) +
+  keyStr.charAt(((e1 & 3) << 4) | (e2 >> 4)) +
+  keyStr.charAt(((e2 & 15) << 2) | (e3 >> 6)) +
+  keyStr.charAt(e3 & 63);
+
+const rgbDataURL = (r: number, g: number, b: number) =>
+  `data:image/gif;base64,R0lGODlhAQABAPAA${
+    triplet(0, r, g) + triplet(b, 255, 255)
+  }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`;
+
+const Image = ({ src, alt, style, width, height }: ImageProps) => {
   return (
     <NextImage
       src={src}
@@ -25,7 +39,7 @@ const Image = ({ src, alt, style, width, height, blurDataURL }: ImageProps) => {
         objectFit: "cover",
         ...style,
       }}
-      blurDataURL={blurDataURL}
+      blurDataURL={rgbDataURL(220, 220, 220)}
       quality={100}
       placeholder="blur"
     />
