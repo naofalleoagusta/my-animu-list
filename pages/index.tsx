@@ -1,7 +1,18 @@
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+
 import PageLayout from "../layouts/PageLayout";
-import Banner from "../components/Banner";
 import Section from "../components/Section";
-import ListAnime from "../components/ListAnime";
+
+const ListAnime = dynamic(() => import("../components/ListAnime"), {
+  suspense: true,
+  ssr: false,
+});
+
+const Banner = dynamic(() => import("../components/Banner"), {
+  suspense: true,
+  ssr: false,
+});
 
 import { QueryListAnimeType } from "../types";
 
@@ -29,7 +40,13 @@ const QUERIES_LIST_ANIME: QueryListAnimeType[] = [
 
 export default function Home() {
   return (
-    <PageLayout banner={<Banner />}>
+    <PageLayout
+      banner={
+        <Suspense>
+          <Banner />
+        </Suspense>
+      }
+    >
       <Section
         sx={{
           display: "flex",
@@ -37,13 +54,15 @@ export default function Home() {
           rowGap: "24px",
         }}
       >
-        {QUERIES_LIST_ANIME.map((dtQuery, idx) => (
-          <ListAnime
-            param={dtQuery.param}
-            title={dtQuery.title}
-            key={`list-anime-${idx}`}
-          />
-        ))}
+        <Suspense fallback={<></>}>
+          {QUERIES_LIST_ANIME.map((dtQuery, idx) => (
+            <ListAnime
+              param={dtQuery.param}
+              title={dtQuery.title}
+              key={`list-anime-${idx}`}
+            />
+          ))}
+        </Suspense>
       </Section>
     </PageLayout>
   );
