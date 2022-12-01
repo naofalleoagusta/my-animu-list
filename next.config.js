@@ -4,6 +4,7 @@ const nextConfig = {
   swcMinify: true,
   images: {
     formats: ["image/webp"],
+    deviceSizes: [640, 768, 1024, 1280, 1536],
     remotePatterns: [
       {
         protocol: "https",
@@ -12,6 +13,8 @@ const nextConfig = {
         pathname: "/**",
       },
     ],
+    minimumCacheTTL: 60,
+    disableStaticImages: true,
   },
 };
 
