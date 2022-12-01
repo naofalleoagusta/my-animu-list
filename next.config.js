@@ -13,7 +13,7 @@ const nextConfig = {
         pathname: "/**",
       },
     ],
-    minimumCacheTTL: 360000,
+    minimumCacheTTL: 604800,
     disableStaticImages: true,
   },
 };
