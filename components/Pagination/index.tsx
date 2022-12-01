@@ -15,7 +15,7 @@ const style: StyleType = {
   paginationContainer: {
     display: "flex",
     gap: "8px",
-    alignItems: "baseline",
+    alignItems: "initial",
     justifyContent: "flex-end",
     padding: "8px",
     flexWrap: {

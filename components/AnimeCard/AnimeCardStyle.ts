@@ -4,19 +4,19 @@ export const style: StyleType = {
   root: {
     flexBasis: {
       xs: "247px",
-      lg: "20%",
+      md: "20%",
     },
     height: {
-      lg: "318px",
+      md: "318px",
       xs: "350px",
     },
     maxWidth: {
       xs: "247px",
-      lg: "20%",
+      md: "20%",
     },
     flexShrink: {
       xs: 0,
-      lg: "unset",
+      md: "unset",
     },
     padding: "8px",
     overflow: "hidden",
@@ -31,6 +31,10 @@ export const style: StyleType = {
       borderRadius: "10px",
       padding: "4px",
       transition: "all 300ms ease-in-out",
+      bgcolor: {
+        xs: "primary.main",
+        lg: "unset",
+      },
     },
     (theme) => ({
       "&:hover": {

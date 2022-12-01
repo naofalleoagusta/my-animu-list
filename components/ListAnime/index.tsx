@@ -29,11 +29,11 @@ const style: StyleType = {
     flexDirection: "row",
     overflow: {
       xs: "auto",
-      lg: "hidden",
+      md: "hidden",
     },
     flexWrap: {
       xs: "nowrap",
-      lg: "wrap",
+      md: "wrap",
     },
   },
   paginationContainer: {
