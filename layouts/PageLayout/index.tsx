@@ -17,7 +17,7 @@ const PageLayout = ({ banner, children }: PageLayoutProps) => {
     <>
       <Section
         sx={{
-          height: isMobile ? "200px" : "480px",
+          height: isMobile ? "280px" : "480px",
           padding: "80px 0 40px",
           bgcolor: "primary.main",
         }}
