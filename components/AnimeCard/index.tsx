@@ -30,7 +30,7 @@ const AnimeCard = ({
           height={318}
           width={225}
         />
-        {!!score && !!scored_by && (
+        {!!score && (
           <Box sx={style.scoreContainer} className="scoreContainer">
             <ScoreCard score={score} scored_by={scored_by} />
           </Box>

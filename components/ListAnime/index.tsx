@@ -7,6 +7,8 @@ import ListAnimeSkeleton from "./components/ListAnimeSkeleton";
 import Pagination from "../Pagination";
 
 import useAnimes from "../../helpers/hooks/useAnimes";
+import { camelize } from "../../helpers/camelize";
+import scrollToView from "../../helpers/scrollToView";
 
 import { AnimeInputType } from "../../schema";
 import { StyleType } from "../../types";
@@ -64,6 +66,7 @@ const ListAnime = ({ param, title }: ListAnimeProps) => {
     if (animeListRef?.current) {
       animeListRef.current.scrollTo({ left: 0, behavior: "smooth" });
     }
+    scrollToView(`${camelize(title)}-list-anime`);
   };
 
   if (error) {
@@ -71,7 +74,7 @@ const ListAnime = ({ param, title }: ListAnimeProps) => {
   }
 
   return (
-    <Box>
+    <Box id={`${camelize(title)}-list-anime`}>
       <Typography variant="h2" sx={style.title}>
         {title}
       </Typography>

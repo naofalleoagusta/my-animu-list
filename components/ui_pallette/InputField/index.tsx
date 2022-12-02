@@ -16,56 +16,61 @@ type InputFieldProps = Pick<
   | "onBlur"
   | "onWheel"
   | "onKeyDown"
+  | "placeholder"
 >;
 
-const InputField = forwardRef<HTMLInputElement,InputFieldProps>(function InputField(
-  {
-    error,
-    helperText,
-    id,
-    label,
-    onChange,
-    onFocus,
-    onBlur,
-    onWheel,
-    value,
-    variant = "standard",
-    type,
-    sx,
-    onKeyDown,
-  }: InputFieldProps,
-  ref
-) {
-  return (
-    <TextField
-      id={id}
-      label={label}
-      variant={variant}
-      error={error}
-      helperText={helperText}
-      onChange={onChange}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      onWheel={onWheel}
-      value={value}
-      type={type}
-      sx={[
-        () => ({
-          "& input[type=number]": {
-            MozAppearance: "textfield",
-          },
-          "& input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button":
-            {
-              WebkitAppearance: "none",
-              margin: "0",
+const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
+  function InputField(
+    {
+      error,
+      helperText,
+      id,
+      label,
+      onChange,
+      onFocus,
+      onBlur,
+      onWheel,
+      value,
+      variant = "standard",
+      type,
+      sx,
+      onKeyDown,
+      placeholder,
+    }: InputFieldProps,
+    ref
+  ) {
+    return (
+      <TextField
+        id={id}
+        label={label}
+        variant={variant}
+        error={error}
+        helperText={helperText}
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        onWheel={onWheel}
+        value={value}
+        type={type}
+        placeholder={placeholder}
+        sx={[
+          () => ({
+            "& input[type=number]": {
+              MozAppearance: "textfield",
             },
-        }),
-        ...(Array.isArray(sx) ? sx : [sx]),
-      ]}
-      inputRef={ref}
-      onKeyDown={onKeyDown}
-    />
-  );
-});
+            "& input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button":
+              {
+                WebkitAppearance: "none",
+                margin: "0",
+              },
+          }),
+          ...(Array.isArray(sx) ? sx : [sx]),
+        ]}
+        inputRef={ref}
+        onKeyDown={onKeyDown}
+      />
+    );
+  }
+);
 
 export default InputField;

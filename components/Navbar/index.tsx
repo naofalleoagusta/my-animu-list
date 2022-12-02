@@ -15,11 +15,9 @@ const Navbar = () => {
   return (
     <Box
       sx={{
-        background: "transparent",
-        position: "absolute",
-        top: 0,
+        background:
+          "linear-gradient(to right, rgb(59, 130, 246), rgb(37, 99, 235))",
         width: "100%",
-        zIndex: 100,
       }}
     >
       <header>
@@ -28,8 +26,7 @@ const Navbar = () => {
             sx={{
               display: "flex",
               justifyContent: "space-between",
-              paddingTop: "36px",
-              paddingBottom: "36px",
+              padding:"28px 0 ",
               alignItems: "center",
             }}
             maxWidth="lg"

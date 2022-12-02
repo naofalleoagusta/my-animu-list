@@ -3,20 +3,21 @@ import MuiPagination, {
   PaginationProps as MuiPaginationProps,
 } from "@mui/material/Pagination";
 import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { z } from "zod";
 
 import Button from "../ui_pallette/Button";
 import InputField from "../ui_pallette/InputField";
 
 import { StyleType } from "../../types";
-import { Theme, useMediaQuery } from "@mui/material";
-import { z } from "zod";
 
 const style: StyleType = {
   paginationContainer: {
     display: "flex",
     gap: "8px",
     alignItems: "initial",
-    justifyContent: "flex-end",
+    justifyContent: "center",
     padding: "8px",
     flexWrap: {
       xs: "wrap",
@@ -33,6 +34,10 @@ const style: StyleType = {
     display: "flex",
     columnGap: "6px",
     alignItems: "base",
+  },
+  errorMsg: {
+    color: "error.main",
+    fontSize: "12px",
   },
 };
 
@@ -51,9 +56,7 @@ type Error = {
 const Pagination = ({ count, onChange, page, id }: PaginationProps) => {
   const [value, setValue] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
-  const isMobile = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down("sm")
-  );
+  const isSmall = useMediaQuery("(max-width:389px)");
 
   const [status, setStatus] = useState<Error>({
     error: false,
@@ -116,23 +119,34 @@ const Pagination = ({ count, onChange, page, id }: PaginationProps) => {
         sx={style.pagination}
         onChange={onChange}
         color="primary"
+        size={isSmall ? "small" : "medium"}
       />
-      <Box sx={style.inputContainer}>
-        <InputField
-          onChange={handleOnChangeTextField}
-          onWheel={handleOnWheel}
-          onKeyDown={handleOnKeyDown}
-          value={value}
-          id={id && `${id}-pagination-input`}
-          sx={style.input}
-          type="number"
-          ref={inputRef}
-          error={status.error}
-          helperText={status.message}
-        />
-        <Button disabled={status.error || !value} onClick={handleOnClickButton}>
-          Go
-        </Button>
+      <Box>
+        <Box sx={style.inputContainer}>
+          <InputField
+            onChange={handleOnChangeTextField}
+            onWheel={handleOnWheel}
+            onKeyDown={handleOnKeyDown}
+            value={value}
+            id={id && `${id}-pagination-input`}
+            sx={style.input}
+            type="number"
+            ref={inputRef}
+            error={status.error}
+            placeholder="Page Num"
+          />
+          <Button
+            disabled={status.error || !value}
+            onClick={handleOnClickButton}
+          >
+            Go
+          </Button>
+        </Box>
+        {!!status.message && (
+          <Typography variant="caption" sx={style.errorMsg}>
+            {status.message}
+          </Typography>
+        )}
       </Box>
     </Box>
   );
