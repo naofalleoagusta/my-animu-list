@@ -1,3 +1,4 @@
+import { useMediaQuery } from "@mui/material";
 import { ReactNode } from "react";
 import ReactSelect, {
   SingleValue,
@@ -17,6 +18,11 @@ type SelectProps = {
   ) => void;
 };
 
+const HEIGHT = {
+  small: "26px",
+  medium: "32px",
+};
+
 const Select = ({
   options,
   placeholder,
@@ -24,6 +30,7 @@ const Select = ({
   isMulti,
   onChange,
 }: SelectProps) => {
+  const isSmall = useMediaQuery("(max-width:389px)");
   return (
     <ReactSelect
       options={options}
@@ -32,18 +39,25 @@ const Select = ({
         control: (baseStyles, _) => ({
           ...baseStyles,
           border: "1px solid grey",
-          width: "80px",
-          height: "32px",
-          minHeight: "32px",
+          width: isSmall ? "60px" : "80px",
+          height: isSmall ? HEIGHT.small : HEIGHT.medium,
+          minHeight: isSmall ? HEIGHT.small : HEIGHT.medium,
         }),
         indicatorsContainer: (provided, _) => ({
           ...provided,
-          height: "32px",
+          height: isSmall ? HEIGHT.small : HEIGHT.medium,
         }),
         valueContainer: (provided, _) => ({
           ...provided,
-          height: "32px",
-          padding: "0 6px",
+          height: isSmall ? HEIGHT.small : HEIGHT.medium,
+          padding: "0px 6px",
+        }),
+        input: (provided, _) => ({
+          ...provided,
+          height: isSmall ? HEIGHT.small : HEIGHT.medium,
+          padding: "0",
+          margin: "0",
+          height: isSmall ? HEIGHT.small : HEIGHT.medium,
         }),
       }}
       components={{

@@ -1,10 +1,9 @@
-import { useState } from "react";
 import MuiPagination, {
   PaginationProps as MuiPaginationProps,
 } from "@mui/material/Pagination";
 import Box from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { SingleValue, ActionMeta } from "react-select";
+import { ActionMeta } from "react-select";
 
 import Select from "../Select";
 
@@ -46,16 +45,10 @@ type PaginationProps = Pick<
   id?: string;
 };
 
-type Error = {
-  error: boolean;
-  message: string;
-};
-
-const Pagination = ({ count, onChange, page, id }: PaginationProps) => {
+const Pagination = ({ count, onChange, page }: PaginationProps) => {
   const isSmall = useMediaQuery("(max-width:389px)");
 
   const handleOnChange = (newValue: any, _: ActionMeta<string>) => {
-    console.log(newValue);
     if (onChange) {
       onChange("" as any, parseInt(newValue.label));
     }
