@@ -17,10 +17,9 @@ const PageLayout = ({ banner, children }: PageLayoutProps) => {
     <>
       <Section
         sx={{
-          height: isMobile ? "200px" : "400px",
-          padding: "4px 0 40px",
-          background:
-            "linear-gradient(to right, rgb(59, 130, 246), rgb(37, 99, 235))",
+          height: isMobile ? "200px" : "480px",
+          padding: "80px 0 40px",
+          bgcolor: "primary.main",
         }}
       >
         <Container

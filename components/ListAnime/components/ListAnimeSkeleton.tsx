@@ -1,4 +1,5 @@
-import { Grid } from "@mui/material";
+import Grid from "@mui/material/Grid";
+
 import Skeleton from "../../ui_pallette/Skeleton";
 
 import { style } from "../../AnimeCard/AnimeCardStyle";

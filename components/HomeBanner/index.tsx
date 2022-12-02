@@ -12,7 +12,7 @@ import { ANIMES_QUERY_PARAM } from "./constant";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const Banner = () => {
+const HomeBanner = () => {
   const { animes, error, loading } = useAnimes(ANIMES_QUERY_PARAM);
 
   if (error) {
@@ -46,4 +46,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default HomeBanner;

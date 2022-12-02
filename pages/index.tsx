@@ -6,12 +6,10 @@ import Section from "../components/Section";
 
 const ListAnime = dynamic(() => import("../components/ListAnime"), {
   suspense: true,
-  ssr: false,
 });
 
-const Banner = dynamic(() => import("../components/Banner"), {
+const Banner = dynamic(() => import("../components/HomeBanner"), {
   suspense: true,
-  ssr: false,
 });
 
 import { QueryListAnimeType } from "../types";
