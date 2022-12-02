@@ -10,12 +10,6 @@ import { FavoriteAnimeType, StyleType } from "../../types";
 type FavoriteButtonProps = { anime: FavoriteAnimeType };
 
 const style: StyleType = {
-  iconBtn: () => ({
-    position: "relative",
-    width: "36px",
-    height: "36px",
-    transition: "all 300ms ease-in-out",
-  }),
   baseIcon: {
     position: "absolute",
     left: "50%",
@@ -50,7 +44,12 @@ const FavoriteButton = ({ anime }: FavoriteButtonProps) => {
     <IconButton
       onClick={handleOnClick}
       sx={[
-        style.iconBtn,
+        {
+          position: "relative",
+          width: "36px",
+          height: "36px",
+          transition: "all 300ms ease-in-out",
+        },
         (theme) => ({
           border: `2px solid ${
             isFavorite ? theme.palette.error.main : "white"
