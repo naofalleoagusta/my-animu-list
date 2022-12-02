@@ -66,12 +66,13 @@ export const style: StyleType = {
     width: "calc(100% - 8px)",
     position: "absolute",
     minWidth: 0,
-    height: "auto",
-
+    height: "50px",
     bottom: { xs: "0px", lg: "-300px" },
     bgcolor: "primary.main",
     transition: "all 300ms ease-in-out",
-    padding: "12px 18px",
+    padding: "8px 18px",
+    display: "flex",
+    alignItems: "center",
   },
   title: {
     fontWeight: 700,
@@ -79,5 +80,10 @@ export const style: StyleType = {
     wordBreak: "break-all",
     letterSpacing: "0px",
     color: "white",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "-webkit-box",
+    WebkitLineClamp: "2",
+    WebkitBoxOrient: "vertical",
   },
 };

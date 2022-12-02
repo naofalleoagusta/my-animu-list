@@ -34,6 +34,7 @@ const style: StyleType = {
   },
   lowerBanner: {
     bgcolor: "primary.main",
+    height: { xs: "auto", md: "350px" },
   },
   lowerBannerContainer: {
     transform: { xs: "translateY(-50px)", sm: "translateY(-150px)" },
@@ -54,7 +55,7 @@ const style: StyleType = {
   contentContainer: {
     flexGrow: 1,
     padding: {
-      md: "24px 0 24px 24px",
+      md: "24px 0 0 24px",
     },
     gap: "4px",
   },

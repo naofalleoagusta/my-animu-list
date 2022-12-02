@@ -1,14 +1,12 @@
-import { ChangeEvent, KeyboardEvent, useRef, useState } from "react";
+import { useState } from "react";
 import MuiPagination, {
   PaginationProps as MuiPaginationProps,
 } from "@mui/material/Pagination";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { z } from "zod";
+import { SingleValue, ActionMeta } from "react-select";
 
-import Button from "../ui_pallette/Button";
-import InputField from "../ui_pallette/InputField";
+import Select from "../Select";
 
 import { StyleType } from "../../types";
 
@@ -17,7 +15,7 @@ const style: StyleType = {
     display: "flex",
     gap: "8px",
     alignItems: "initial",
-    justifyContent: "center",
+    justifyContent: "flex-end",
     padding: "8px",
     flexWrap: {
       xs: "wrap",
@@ -54,58 +52,12 @@ type Error = {
 };
 
 const Pagination = ({ count, onChange, page, id }: PaginationProps) => {
-  const [value, setValue] = useState("");
-  const inputRef = useRef<HTMLInputElement>(null);
   const isSmall = useMediaQuery("(max-width:389px)");
 
-  const [status, setStatus] = useState<Error>({
-    error: false,
-    message: "",
-  });
-
-  const clearError = () => {
-    setStatus({
-      error: false,
-      message: "",
-    });
-  };
-
-  const handleOnChangeTextField = (event: ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value !== "") {
-      try {
-        const validator = z
-          .number()
-          .min(1)
-          .max(count || 1);
-        validator.parse(parseInt(event.target.value));
-        clearError();
-      } catch (error) {
-        setStatus({
-          error: true,
-          message: `Input between 1 and ${count || 1}`,
-        });
-      }
-    } else {
-      clearError();
-    }
-    setValue(event.target.value);
-  };
-
-  const handleOnWheel = () => {
-    if (inputRef.current) {
-      inputRef.current.blur();
-    }
-  };
-  const handleOnKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-    const ignoredKeys = [",", ".", "+", "-", "e"];
-    if (ignoredKeys.includes(event.key)) {
-      event.preventDefault();
-    }
-  };
-
-  const handleOnClickButton = () => {
+  const handleOnChange = (newValue: any, _: ActionMeta<string>) => {
+    console.log(newValue);
     if (onChange) {
-      onChange("" as any, parseInt(value || "0"));
+      onChange("" as any, parseInt(newValue.label));
     }
   };
 
@@ -122,31 +74,15 @@ const Pagination = ({ count, onChange, page, id }: PaginationProps) => {
         size={isSmall ? "small" : "medium"}
       />
       <Box>
-        <Box sx={style.inputContainer}>
-          <InputField
-            onChange={handleOnChangeTextField}
-            onWheel={handleOnWheel}
-            onKeyDown={handleOnKeyDown}
-            value={value}
-            id={id && `${id}-pagination-input`}
-            sx={style.input}
-            type="number"
-            ref={inputRef}
-            error={status.error}
-            placeholder="Page Num"
-          />
-          <Button
-            disabled={status.error || !value}
-            onClick={handleOnClickButton}
-          >
-            Go
-          </Button>
-        </Box>
-        {!!status.message && (
-          <Typography variant="caption" sx={style.errorMsg}>
-            {status.message}
-          </Typography>
-        )}
+        <Select
+          options={[...Array(count)].map((_, idx) => ({
+            value: `${idx + 1}`,
+            label: `${idx + 1}`,
+          }))}
+          placeholder={`${page || 1}`}
+          value={`${page || 1}`}
+          onChange={handleOnChange}
+        />
       </Box>
     </Box>
   );
