@@ -60,7 +60,7 @@ const ScoreCard = ({ score, scored_by, size = "small" }: ScoreCardProps) => {
         <Typography
           sx={{
             ...style.label,
-            lineHeight: size === "small" ? "initial" : "16px",
+            lineHeight: size === "small" ? "initial" : "18x",
             fontSize: size === "small" ? "10px" : "14px",
           }}
         >

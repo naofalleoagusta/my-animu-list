@@ -3,7 +3,6 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 import Chip from "../../ui_pallette/Chip";
 import Image from "../../ui_pallette/Image";
-import ScoreCard from "../../ScoreCard";
 
 import formatDate from "../../../helpers/formatDate";
 
