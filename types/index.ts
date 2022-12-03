@@ -13,3 +13,5 @@ export type FavoriteAnimeType = Pick<
   AnimeType,
   "mal_id" | "title" | "score" | "images"
 >;
+
+export type MetaTagsType = Record<string, string>;

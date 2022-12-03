@@ -4,6 +4,11 @@ import { Suspense } from "react";
 import PageLayout from "../layouts/PageLayout";
 import Section from "../components/ui_pallette/Section";
 
+import generateMetaTag from "../helpers/generateMetaTag";
+
+import { QueryListAnimeType } from "../types";
+import { APP_BASE_URL } from "../config";
+
 const ListAnime = dynamic(() => import("../components/ListAnime"), {
   suspense: true,
 });
@@ -11,8 +16,6 @@ const ListAnime = dynamic(() => import("../components/ListAnime"), {
 const Banner = dynamic(() => import("../components/HomeBanner"), {
   suspense: true,
 });
-
-import { QueryListAnimeType } from "../types";
 
 const QUERIES_LIST_ANIME: QueryListAnimeType[] = [
   {
@@ -44,6 +47,14 @@ export default function Home() {
           <Banner />
         </Suspense>
       }
+      title="Home | My Animu List"
+      metaTags={generateMetaTag({
+        url: APP_BASE_URL,
+        description:
+          "Welcome to MyAnimuList, the world's most active online anime and manga community and database. Join the online community, create your anime and manga list, read reviews, explore the forums, follow news, and so much more!",
+        image:
+          "https://og-image.vercel.app/Home%20%7C%20My%20Animu%20List.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-black.svg",
+      })}
     >
       <Section
         sx={{

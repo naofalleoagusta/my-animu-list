@@ -10,6 +10,7 @@ export default function AnimeDetail() {
     <PageLayout
       banner={<UpperBanner image={BANNER} />}
       wrapBannerWithContainer={false}
+      title="Favorite | My Animu List"
     >
       <Typography
         variant="h1"

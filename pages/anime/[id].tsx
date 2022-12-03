@@ -4,12 +4,14 @@ import AnimeDetailBanner from "../../components/anime/components/AnimeDetailBann
 import PageLayout from "../../layouts/PageLayout";
 import AnimeDetailContent from "../../components/anime/components/AnimeDetailContent";
 
+import generateMetaTag from "../../helpers/generateMetaTag";
+
 import {
   AnimeRecommendationResType,
   AnimeRecommendationType,
   AnimeType,
 } from "../../types/anime";
-import { API_BASE_URL } from "../../config";
+import { API_BASE_URL, APP_BASE_URL } from "../../config";
 
 export default function AnimeDetail({
   anime,
@@ -20,6 +22,12 @@ export default function AnimeDetail({
       <PageLayout
         banner={<AnimeDetailBanner anime={anime} />}
         wrapBannerWithContainer={false}
+        title={`${anime.title} | My Animu List`}
+        metaTags={generateMetaTag({
+          description: anime.background || anime.title,
+          image: anime.images.webp.image_url,
+          url: `${APP_BASE_URL}anime/${anime.mal_id}`,
+        })}
       >
         <AnimeDetailContent anime={anime} recommendations={recommendations} />
       </PageLayout>
