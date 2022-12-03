@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { API_BASE_URL } from "../../config";
+import { useRouter } from "next/router";
 
 import AnimeDetailBanner from "../../components/AnimeDetailBanner";
 import PageLayout from "../../layouts/PageLayout";
@@ -10,11 +10,17 @@ import {
   AnimeRecommendationType,
   AnimeType,
 } from "../../types/anime";
+import { API_BASE_URL } from "../../config";
 
 export default function AnimeDetail({
   anime,
   recommendations,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const { isFallback } = useRouter();
+  if (isFallback) {
+    return <>loading..</>;
+  }
+
   return (
     <PageLayout
       banner={<AnimeDetailBanner anime={anime} />}
@@ -32,6 +38,7 @@ export const getStaticProps: GetStaticProps<{
   const res = await fetch(`${API_BASE_URL}/${params?.id || 1}`);
   const anime = (await res.json()) as { data: AnimeType };
   if (!res.ok) {
+    console.log(res);
     throw new Error(`Failed to fetch anime, received status ${res.status}`);
   }
 
@@ -44,6 +51,7 @@ export const getStaticProps: GetStaticProps<{
     (dtRecommendation) => dtRecommendation.entry
   );
   if (!resRecommendation.ok) {
+    console.log(res);
     throw new Error(
       `Failed to fetch anime recommendation, received status ${resRecommendation.status}`
     );
@@ -61,6 +69,6 @@ export const getStaticProps: GetStaticProps<{
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   return {
     paths: [],
-    fallback: "blocking",
+    fallback: true,
   };
 };
