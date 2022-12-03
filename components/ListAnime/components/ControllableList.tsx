@@ -82,7 +82,11 @@ const ControllableList = ({ param, title }: ControllableListProps) => {
       <Grid ref={animeListRef} container sx={style.animeList}>
         {animes && !loading ? (
           animes?.data?.map((dtAnime) => (
-            <AnimeCard {...dtAnime} key={`${dtAnime.mal_id}`} />
+            <AnimeCard
+              {...dtAnime}
+              key={`${dtAnime.mal_id}`}
+              imageKey={`${dtAnime.mal_id}`}
+            />
           ))
         ) : (
           <ListAnimeSkeleton />

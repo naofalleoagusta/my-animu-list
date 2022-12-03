@@ -9,4 +9,7 @@ export type QueryListAnimeType = {
   param: AnimeInputType;
 };
 
-export type FavoriteAnimeType = Pick<AnimeType, "mal_id" | "title" | "score">;
+export type FavoriteAnimeType = Pick<
+  AnimeType,
+  "mal_id" | "title" | "score" | "images"
+>;

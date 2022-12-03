@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { useRouter } from "next/router";
 
 import AnimeDetailBanner from "../../components/AnimeDetailBanner";
 import PageLayout from "../../layouts/PageLayout";
@@ -16,10 +15,6 @@ export default function AnimeDetail({
   anime,
   recommendations,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const { isFallback } = useRouter();
-  if (isFallback) {
-    return <>loading..</>;
-  }
   if (anime) {
     return (
       <PageLayout
@@ -30,6 +25,7 @@ export default function AnimeDetail({
       </PageLayout>
     );
   }
+  return <>Not Found</>;
 }
 
 export const getStaticProps: GetStaticProps<{
@@ -40,11 +36,7 @@ export const getStaticProps: GetStaticProps<{
   try {
     const res = await fetch(`${API_BASE_URL}/${params?.id || 1}`);
     anime = (await res.json()) as { data: AnimeType | undefined };
-  } catch (_) {
-    return {
-      notFound: true,
-    };
-  }
+  } catch (_) {}
 
   let recommendationsRes: AnimeRecommendationType[] = [];
   try {
@@ -65,6 +57,7 @@ export const getStaticProps: GetStaticProps<{
       recommendations: recommendationsRes,
     },
     revalidate: 60, // In seconds
+    notFound: !anime.data,
   };
 };
 

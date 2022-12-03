@@ -43,6 +43,7 @@ const ListAnime = ({ param, title, recommendations }: ListAnimeProps) => {
                 score={null}
                 scored_by={null}
                 key={`${dtAnime.mal_id}`}
+                imageKey={`${dtAnime.mal_id}`}
               />
             ))
           ) : (

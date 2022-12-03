@@ -9,13 +9,13 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "cdn.myanimelist.net",
-        port: "",
+        port: "80",
         pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "img.youtube.com",
-        port: "",
+        port: "80",
         pathname: "/**",
       },
     ],

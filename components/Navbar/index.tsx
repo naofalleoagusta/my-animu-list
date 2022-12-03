@@ -2,8 +2,8 @@ import { Box, Container, styled } from "@mui/material";
 import { useEffect, useState } from "react";
 
 import Link from "../ui_pallette/Link";
-
-import LINKS from "./constant";
+import Avatar from "./components/Avatar";
+import Drawer from "./components/Drawer";
 
 const SLink = styled(Link)(() => ({
   color: "white",
@@ -14,6 +14,11 @@ const SLink = styled(Link)(() => ({
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false);
+
+  const toggleDrawer = () => {
+    setOpenDrawer((prev) => !prev);
+  };
 
   const handleOnScroll = () => {
     const windowHeight = window.scrollY;
@@ -25,56 +30,67 @@ const Navbar = () => {
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", handleOnScroll);
 
-      () => {
-        return window.removeEventListener("scroll", handleOnScroll);
-      };
+      return () => window.removeEventListener("scroll", handleOnScroll);
     }
   }, []);
+
   return (
-    <Box
-      sx={{
-        width: "100%",
-        position: "fixed",
-        top: 0,
-        left: 0,
-        zIndex: 50,
-        background: isScrolled ? "rgba(0, 61, 118,.4)" : "transparent",
-        backdropFilter: isScrolled ? "blur(5px)" : "unset",
-        transition: "all 250ms ease-in-out",
-      }}
-    >
-      <header>
-        <nav>
-          <Container
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              padding: "28px 16px",
-              alignItems: "center",
-            }}
-            maxWidth="lg"
-          >
-            <SLink
-              href="/"
+    <>
+      <Box
+        sx={{
+          width: "100%",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          zIndex: 50,
+          background: isScrolled ? "rgba(0, 61, 118,.4)" : "transparent",
+          backdropFilter: isScrolled ? "blur(5px)" : "unset",
+          transition: "all 250ms ease-in-out",
+        }}
+      >
+        <header>
+          <nav>
+            <Container
               sx={{
-                fontSize: "20px",
-                color: "white",
-                letterSpacing: "normal",
+                display: "flex",
+                justifyContent: "space-between",
+                padding: "28px 16px",
+                alignItems: "center",
               }}
+              maxWidth="lg"
             >
-              MyAnimuList
-            </SLink>
-            <Box sx={{ display: "flex", columnGap: 4 }}>
-              {LINKS.map((dtLink, idx) => (
-                <SLink href={dtLink.href} key={idx}>
-                  {dtLink.content}
-                </SLink>
-              ))}
-            </Box>
-          </Container>
-        </nav>
-      </header>
-    </Box>
+              <SLink
+                href="/"
+                sx={{
+                  fontSize: "20px",
+                  color: "white",
+                  letterSpacing: "normal",
+                }}
+              >
+                MyAnimuList
+              </SLink>
+              <Box
+                sx={() => ({
+                  display: "flex",
+                  columnGap: 4,
+                  width: "40px",
+                  height: "40px",
+                  cursor: "pointer",
+                  "& > img": {
+                    borderRadius: "5px",
+                    border: "1px solid white",
+                  },
+                })}
+                onClick={toggleDrawer}
+              >
+                <Avatar />
+              </Box>
+            </Container>
+          </nav>
+        </header>
+      </Box>
+      <Drawer openDrawer={openDrawer} toggleDrawer={toggleDrawer} />
+    </>
   );
 };
 

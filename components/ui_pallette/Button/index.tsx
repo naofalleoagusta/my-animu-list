@@ -1,6 +1,6 @@
 import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 
-const Button = ({ sx, children, ...props }: ButtonBaseProps) => {
+const Button = ({ id, name, sx, children, ...props }: ButtonBaseProps) => {
   return (
     <ButtonBase
       sx={[
@@ -26,6 +26,8 @@ const Button = ({ sx, children, ...props }: ButtonBaseProps) => {
         }),
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
+      id={id}
+      name={name}
       {...props}
     >
       {children}

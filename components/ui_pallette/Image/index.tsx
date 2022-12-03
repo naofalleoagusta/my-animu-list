@@ -8,7 +8,7 @@ type ImageProps = {
   width?: number;
   height?: number;
   blurDataURL?: string;
-  key: string;
+  keyValue: string;
 };
 
 const keyStr =
@@ -25,7 +25,7 @@ const rgbDataURL = (r: number, g: number, b: number) =>
     triplet(0, r, g) + triplet(b, 255, 255)
   }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`;
 
-const Image = ({ src, alt, style, width, height,key }: ImageProps) => {
+const Image = ({ src, alt, style, width, height, keyValue }: ImageProps) => {
   return (
     <NextImage
       src={src}
@@ -42,6 +42,7 @@ const Image = ({ src, alt, style, width, height,key }: ImageProps) => {
       blurDataURL={rgbDataURL(220, 220, 220)}
       quality={100}
       placeholder="blur"
+      key={keyValue}
     />
   );
 };

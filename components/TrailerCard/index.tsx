@@ -46,7 +46,7 @@ const TrailerCard = ({ trailer, title }: TrailerCardProps) => {
           width={320}
           height={180}
           alt={`${title} trailer banner`}
-          key={trailer.images.medium_image_url}
+          keyValue={trailer.images.medium_image_url}
         />
         <Button
           sx={{

@@ -34,7 +34,7 @@ const BannerCard = ({ anime }: BannerCardProps) => {
           blurDataURL={anime.images.webp.small_image_url}
           width={300}
           height={446}
-          key={`${anime.mal_id}`}
+          keyValue={`${anime.mal_id}`}
         />
       </Grid>
       <Grid item sx={style.contentBannerContainer}>

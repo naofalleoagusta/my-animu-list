@@ -11,7 +11,7 @@ type AnimeCardProps = Pick<
   AnimeType,
   "images" | "mal_id" | "score" | "scored_by" | "title"
 > & {
-  key: string;
+  imageKey: string;
 };
 
 const AnimeCard = ({
@@ -20,7 +20,7 @@ const AnimeCard = ({
   score,
   scored_by,
   title,
-  key,
+  imageKey,
 }: AnimeCardProps) => {
   return (
     <Grid item sx={style.root}>
@@ -31,7 +31,7 @@ const AnimeCard = ({
           blurDataURL={images.webp.small_image_url}
           height={318}
           width={225}
-          key={key}
+          keyValue={imageKey}
         />
         {!!score && (
           <Box sx={style.scoreContainer} className="scoreContainer">
