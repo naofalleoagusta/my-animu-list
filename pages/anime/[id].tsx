@@ -40,7 +40,11 @@ export const getStaticProps: GetStaticProps<{
   try {
     const res = await fetch(`${API_BASE_URL}/${params?.id || 1}`);
     anime = (await res.json()) as { data: AnimeType | undefined };
-  } catch (_) {}
+  } catch (_) {
+    return {
+      notFound: true,
+    };
+  }
 
   let recommendationsRes: AnimeRecommendationType[] = [];
   try {
@@ -61,7 +65,6 @@ export const getStaticProps: GetStaticProps<{
       recommendations: recommendationsRes,
     },
     revalidate: 60, // In seconds
-    notFound: !anime.data,
   };
 };
 

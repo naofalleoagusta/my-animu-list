@@ -37,7 +37,7 @@ const style: StyleType = {
   },
   lowerBanner: {
     bgcolor: "primary.main",
-    height: { xs: "auto", md: "350px" },
+    height: { xs: "auto", md: "370px" },
   },
   lowerBannerContainer: {
     transform: { xs: "translateY(-120px)", sm: "translateY(-150px)" },
