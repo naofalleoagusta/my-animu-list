@@ -19,13 +19,17 @@ const Drawer = ({ toggleDrawer, openDrawer }: DrawerProps) => {
       open={openDrawer}
       onClose={toggleDrawer}
       onOpen={toggleDrawer}
+      sx={() => ({
+        "& .MuiDrawer-paper": {
+          borderTopLeftRadius: "12px",
+          borderBottomLeftRadius: "12px",
+        },
+      })}
     >
       <Box
         sx={() => ({
           width: 300,
           p: "32px",
-          borderTopLeftRadius: "10px",
-          borderBottomLeftRadius: "10px",
           position: "relative",
         })}
       >

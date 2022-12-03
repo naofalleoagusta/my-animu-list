@@ -1,11 +1,11 @@
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import { useRouter } from "next/router";
 
 import useFavorites from "../../../helpers/hooks/useFavorites";
 import Image from "../../ui_pallette/Image";
 import { Typography } from "@mui/material";
 import Button from "../../ui_pallette/Button";
-import { useRouter } from "next/router";
 
 type FavoriteAnimeListProps = {
   toggleDrawer: () => void;
@@ -19,10 +19,17 @@ const FavoriteAnimeList = ({ toggleDrawer }: FavoriteAnimeListProps) => {
     router.push(`/anime/${id}`);
     toggleDrawer();
   };
+
+  const redirectToFavoritePage = () => {
+    router.push(`/favorite`);
+    toggleDrawer();
+  };
+
   const slicedAnimes = (animes || []).slice(
     animes.length > 3 ? animes.length - 3 : 0,
     animes.length
   );
+
   return (
     <Grid container flexDirection="column" sx={{ gap: "12px", mt: "12px" }}>
       {!!slicedAnimes.length ? (
@@ -71,6 +78,8 @@ const FavoriteAnimeList = ({ toggleDrawer }: FavoriteAnimeListProps) => {
               <Button
                 id={`btn-detail-${dtAnime.mal_id}`}
                 onClick={() => handleOnClickBtn(dtAnime.mal_id)}
+                sx={{ width: "100%" }}
+                variant="outlined"
               >
                 View Detail
               </Button>
@@ -80,6 +89,13 @@ const FavoriteAnimeList = ({ toggleDrawer }: FavoriteAnimeListProps) => {
       ) : (
         <>You have not set any favourite anime, yet.</>
       )}
+      <Button
+        sx={{ width: "100%", mt: "16px" }}
+        variant="outlined"
+        onClick={redirectToFavoritePage}
+      >
+        {!!slicedAnimes.length ? "View More" : "Favorite Page"}
+      </Button>
     </Grid>
   );
 };
