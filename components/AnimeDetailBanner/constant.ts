@@ -6,6 +6,21 @@ type LabelInfoType = {
   extendedKey?: string;
 };
 
+export const LABEL_STATS: LabelInfoType[] = [
+  {
+    label: "Ranked",
+    key: "rank",
+  },
+  {
+    label: "Popularity",
+    key: "popularity",
+  },
+  {
+    label: "Members",
+    key: "members",
+  },
+];
+
 export const LABEL_FIRST_ROW: LabelInfoType[] = [
   {
     label: "Type",

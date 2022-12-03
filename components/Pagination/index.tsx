@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { ActionMeta } from "react-select";
 
-import Select from "../Select";
+import Select from "../ui_pallette/Select";
 
 import { StyleType } from "../../types";
 

@@ -31,7 +31,6 @@ const Image = ({ src, alt, style, width, height }: ImageProps) => {
       alt={alt}
       width={width}
       height={height}
-      layout="responsive"
       loading="lazy"
       style={{
         height: "auto",

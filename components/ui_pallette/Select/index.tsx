@@ -57,7 +57,6 @@ const Select = ({
           height: isSmall ? HEIGHT.small : HEIGHT.medium,
           padding: "0",
           margin: "0",
-          height: isSmall ? HEIGHT.small : HEIGHT.medium,
         }),
       }}
       components={{

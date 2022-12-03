@@ -31,15 +31,11 @@ export const style: StyleType = {
       borderRadius: "10px",
       padding: "4px",
       transition: "all 300ms ease-in-out",
-      bgcolor: {
-        xs: "primary.main",
-        lg: "unset",
-      },
+      bgcolor: "unset",
     },
-    (theme) => ({
+    () => ({
       "&:hover": {
         scale: "105%",
-        backgroundColor: theme.palette.primary.main,
         zIndex: 10,
         "& .scoreContainer": {
           opacity: 1,
@@ -47,11 +43,19 @@ export const style: StyleType = {
         "& .titleContainer": {
           bottom: "0px",
         },
+        "& >img": {
+          filter: "blur(1px) brightness(50%)",
+        },
       },
       "& >img": {
         height: "100% !important",
         width: "100% !important",
         borderRadius: "6px",
+        transition: "filter 300ms ease-in-out",
+        filter: {
+          xs: "blur(1px) brightness(50%)",
+          lg: "unset",
+        },
       },
     }),
   ],
@@ -61,24 +65,21 @@ export const style: StyleType = {
     top: "14px",
     left: "14px",
     transition: "all 300ms ease-in-out",
+    zIndex: 100,
   },
   titleContainer: {
     width: "calc(100% - 8px)",
     position: "absolute",
     minWidth: 0,
-    height: "50px",
     bottom: { xs: "0px", lg: "-300px" },
-    bgcolor: "primary.main",
     transition: "all 300ms ease-in-out",
-    padding: "8px 18px",
-    display: "flex",
-    alignItems: "center",
+    padding: "16px 14px",
   },
   title: {
-    fontWeight: 700,
-    fontSize: "16px",
+    fontWeight: 500,
+    fontSize: "17px",
     wordBreak: "break-all",
-    letterSpacing: "0px",
+    letterSpacing: "0.5px",
     color: "white",
     overflow: "hidden",
     textOverflow: "ellipsis",

@@ -8,7 +8,6 @@ type LabelType = {
 };
 
 const Label = ({ label, value }: LabelType) => {
-  console.log(Array.isArray(value));
   return (
     <Typography
       variant="caption"
@@ -19,7 +18,7 @@ const Label = ({ label, value }: LabelType) => {
       }}
     >
       {label}
-      {": "}
+      {" : "}
       <Typography
         variant="caption"
         sx={{

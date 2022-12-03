@@ -10,7 +10,7 @@ import Label from "./components/Label";
 import { AnimeType } from "../../types/anime";
 import { StyleType } from "../../types";
 import ScoreCard from "../ScoreCard";
-import { LABEL_FIRST_ROW, LABEL_SECOND_ROW } from "./constant";
+import { LABEL_FIRST_ROW, LABEL_SECOND_ROW, LABEL_STATS } from "./constant";
 import formatDate from "../../helpers/formatDate";
 
 type AnimeDetailBanner = {
@@ -24,7 +24,7 @@ const FavoriteButton = dynamic(() => import("../FavoriteButton"), {
 const style: StyleType = {
   upperBanner: {
     width: "100%",
-    height: { xs: "150px", sm: "300px" },
+    height: { xs: "250px", sm: "300px" },
     backgroundRepeat: "no-repeat",
     bacgkroundPosition: "center center",
     backgroundSize: "cover",
@@ -37,14 +37,14 @@ const style: StyleType = {
     height: { xs: "auto", md: "350px" },
   },
   lowerBannerContainer: {
-    transform: { xs: "translateY(-50px)", sm: "translateY(-150px)" },
+    transform: { xs: "translateY(-120px)", sm: "translateY(-150px)" },
   },
   gridContainer: {
     alignItems: "flex-end",
     flexWrap: { xs: "wrap", md: "noWrap" },
   },
   imageContainer: () => ({
-    flexBasis: "225px",
+    flexBasis: { xs: "180px", md: "225px" },
     flexShrink: 0,
     "& img": {
       width: "100% !important",
@@ -146,12 +146,17 @@ const AnimeDetailBanner = ({ anime }: AnimeDetailBanner) => {
                   Synopsis
                 </Typography>
                 <Box sx={style.titleContainer}>
-                  <Label label="Ranked" value={`#${anime.rank || "-"}`} />
-                  <Label
-                    label="Popularity"
-                    value={`#${anime.popularity || "-"}`}
-                  />
-                  <Label label="Members" value={`${anime.members}`} />
+                  {LABEL_STATS.map((dtLabel, idx) => (
+                    <Label
+                      label={dtLabel.label}
+                      value={
+                        Array.isArray(anime?.[dtLabel.key])
+                          ? anime[dtLabel.key]
+                          : `${anime?.[dtLabel.key] || "Unknown"}`
+                      }
+                      key={idx}
+                    />
+                  ))}
                 </Box>
               </Box>
               <Typography variant="body2" sx={style.synopsisText}>
@@ -173,20 +178,21 @@ const AnimeDetailBanner = ({ anime }: AnimeDetailBanner) => {
             </Grid>
             <Grid
               item
-              sx={(theme) => ({
+              sx={{
                 borderRadius: "10px",
-                border: `2px solid ${theme.palette.primary.dark}`,
+                border: `2px solid white`,
                 flexGrow: 1,
-              })}
+              }}
             >
               <Box
-                sx={(theme) => ({
+                sx={{
                   display: "flex",
                   flexWrap: "wrap",
                   gap: { xs: "4px 12px", md: "14px" },
-                  borderBottom: `2px solid${theme.palette.primary.dark}`,
-                  padding: "8px 16px",
-                })}
+                  borderBottom: `2px solid white`,
+                  padding: "6px 16px",
+                  alignItems: "center",
+                }}
               >
                 {LABEL_FIRST_ROW.map((dtLabel, idx) => (
                   <Label
@@ -194,7 +200,7 @@ const AnimeDetailBanner = ({ anime }: AnimeDetailBanner) => {
                     value={
                       Array.isArray(anime?.[dtLabel.key])
                         ? anime[dtLabel.key]
-                        : `${anime?.[dtLabel.key]}` || "-"
+                        : `${anime?.[dtLabel.key] || "Unknown"}`
                     }
                     key={idx}
                   />
@@ -205,7 +211,7 @@ const AnimeDetailBanner = ({ anime }: AnimeDetailBanner) => {
                   display: "flex",
                   flexWrap: "wrap",
                   gap: { xs: "4px 12px", md: "14px" },
-                  padding: "8px 16px",
+                  padding: "6px 16px",
                 })}
               >
                 <Label
@@ -221,7 +227,7 @@ const AnimeDetailBanner = ({ anime }: AnimeDetailBanner) => {
                     value={
                       Array.isArray(anime?.[dtLabel.key])
                         ? anime[dtLabel.key]
-                        : `${anime?.[dtLabel.key]}` || "-"
+                        : `${anime?.[dtLabel.key] || "Unknown"}`
                     }
                     key={idx}
                   />
