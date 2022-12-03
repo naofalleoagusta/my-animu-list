@@ -6,35 +6,30 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-import Image from "../../ui_pallette/Image";
+import Image from "../../../ui_pallette/Image";
 import Label from "./components/Label";
+import Button from "../../../ui_pallette/Button";
+import ScoreCard from "../../../ui_pallette/ScoreCard";
 
-import { AnimeType } from "../../../types/anime";
-import { StyleType } from "../../../types";
-import ScoreCard from "../../ui_pallette/ScoreCard";
+import formatDate from "../../../../helpers/formatDate";
+
+import { AnimeType } from "../../../../types/anime";
+import { StyleType } from "../../../../types";
 import { LABEL_FIRST_ROW, LABEL_SECOND_ROW, LABEL_STATS } from "./constant";
-import formatDate from "../../../helpers/formatDate";
-import Button from "../../ui_pallette/Button";
+import UpperBanner from "../../../ui_pallette/UpperBanner";
 
 type AnimeDetailBanner = {
   anime: AnimeType;
 };
 
-const FavoriteButton = dynamic(() => import("../../ui_pallette/FavoriteButton"), {
-  ssr: false,
-});
+const FavoriteButton = dynamic(
+  () => import("../../../ui_pallette/FavoriteButton"),
+  {
+    ssr: false,
+  }
+);
 
 const style: StyleType = {
-  upperBanner: {
-    width: "100%",
-    height: { xs: "250px", sm: "300px" },
-    backgroundRepeat: "no-repeat",
-    bacgkroundPosition: "center center",
-    backgroundSize: "cover",
-    filter:
-      "blur(4px) sepia(100%) hue-rotate(185deg) saturate(300%)  brightness(70%)",
-    transform: `scale(1.05)`,
-  },
   lowerBanner: {
     bgcolor: "primary.main",
     height: { xs: "auto", md: "370px" },
@@ -102,19 +97,7 @@ const AnimeDetailBanner = ({ anime }: AnimeDetailBanner) => {
   };
   return (
     <>
-      <Box
-        sx={{
-          width: "100%",
-          overflow: "hidden",
-        }}
-      >
-        <Box
-          sx={{
-            ...style.upperBanner,
-            backgroundImage: `url('${anime.images.webp.large_image_url}')`,
-          }}
-        />
-      </Box>
+      <UpperBanner image={anime.images.webp.large_image_url} />
       <Box sx={style.lowerBanner}>
         <Container maxWidth="lg" sx={style.lowerBannerContainer}>
           <Grid container flexDirection="row" sx={style.gridContainer}>
@@ -130,11 +113,12 @@ const AnimeDetailBanner = ({ anime }: AnimeDetailBanner) => {
             <Grid item sx={style.contentContainer}>
               <Button
                 onClick={handleGoBack}
-                sx={{
+                sx={(theme) => ({
                   mb: "8px",
                   mt: { xs: "8px", sm: "0" },
-                  bgcolor: { xs: "secondary.main" },
-                }}
+                  bgcolor: "secondary.main",
+                  borderColor: theme.palette.secondary.main,
+                })}
               >
                 <ArrowBackIcon fontSize="small" /> Go Back ?
               </Button>

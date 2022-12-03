@@ -1,4 +1,4 @@
-import { AnimeType } from "../../../types/anime";
+import { AnimeType } from "../../../../types/anime";
 
 type LabelInfoType = {
   label: string;

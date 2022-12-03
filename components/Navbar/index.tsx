@@ -1,9 +1,10 @@
 import { Box, Container, styled } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
 import { useEffect, useState } from "react";
+import MenuIcon from "@mui/icons-material/Menu";
 
-import Link from "../ui_pallette/Link";
-import Avatar from "./components/Avatar";
 import Drawer from "./components/Drawer";
+import Link from "../ui_pallette/Link";
 
 const SLink = styled(Link)(() => ({
   color: "white",
@@ -69,22 +70,9 @@ const Navbar = () => {
               >
                 MyAnimuList
               </SLink>
-              <Box
-                sx={() => ({
-                  display: "flex",
-                  columnGap: 4,
-                  width: "40px",
-                  height: "40px",
-                  cursor: "pointer",
-                  "& > img": {
-                    borderRadius: "5px",
-                    border: "1px solid white",
-                  },
-                })}
-                onClick={toggleDrawer}
-              >
-                <Avatar />
-              </Box>
+              <IconButton id="navbar-menu-btn" onClick={toggleDrawer}>
+                <MenuIcon sx={{ color: "white" }} />
+              </IconButton>
             </Container>
           </nav>
         </header>

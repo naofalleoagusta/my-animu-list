@@ -2,6 +2,7 @@ import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 
 type ButtonProps = ButtonBaseProps & {
   variant?: "contain" | "outlined";
+  fullWidth?: boolean;
 };
 
 const Button = ({
@@ -10,6 +11,7 @@ const Button = ({
   sx,
   children,
   variant = "contain",
+  fullWidth,
   ...props
 }: ButtonProps) => {
   const isContain = variant === "contain";
@@ -24,6 +26,7 @@ const Button = ({
           borderRadius: "6px",
           boxSizing: "borderBox",
           transition: "all 300ms ease-in-out",
+          width: fullWidth ? "100%" : "auto",
         },
         (theme) => ({
           "&.Mui-disabled": {

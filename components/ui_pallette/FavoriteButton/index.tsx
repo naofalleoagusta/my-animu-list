@@ -7,7 +7,11 @@ import useFavorites from "../../../helpers/hooks/useFavorites";
 
 import { FavoriteAnimeType, StyleType } from "../../../types";
 
-type FavoriteButtonProps = { anime: FavoriteAnimeType };
+type FavoriteButtonProps = {
+  anime: FavoriteAnimeType;
+  backgroundColor?: string;
+  callback?: () => void;
+};
 
 const style: StyleType = {
   baseIcon: {
@@ -19,7 +23,11 @@ const style: StyleType = {
   },
 };
 
-const FavoriteButton = ({ anime }: FavoriteButtonProps) => {
+const FavoriteButton = ({
+  anime,
+  backgroundColor,
+  callback,
+}: FavoriteButtonProps) => {
   const {
     animes: favoriteAnimes,
     addAnime,
@@ -32,12 +40,19 @@ const FavoriteButton = ({ anime }: FavoriteButtonProps) => {
     });
   }, [favoriteAnimes, anime.mal_id]);
 
-  const handleOnClick = () => {
+  const toggle = () => {
     if (isFavorite) {
       removeAnime(anime.mal_id);
     } else {
       addAnime(anime);
     }
+  };
+
+  const handleOnClick = () => {
+    if (callback) {
+      return;
+    }
+    toggle();
   };
 
   return (
@@ -49,13 +64,18 @@ const FavoriteButton = ({ anime }: FavoriteButtonProps) => {
           width: "36px",
           height: "36px",
           transition: "all 300ms ease-in-out",
+          backgroundColor: backgroundColor ?? "transparent",
         },
         (theme) => ({
           border: `2px solid ${
             isFavorite ? theme.palette.error.main : "white"
           }`,
+          "&:hover": {
+            backgroundColor: backgroundColor ?? "initial",
+          },
         }),
       ]}
+      id={`favorite-btn-${anime.mal_id}`}
     >
       <FavoriteBorderIcon
         color="error"

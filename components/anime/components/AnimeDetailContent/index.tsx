@@ -1,14 +1,14 @@
 import { Box, Tab, Tabs } from "@mui/material";
 import { useState } from "react";
 
-import ListAnime from "../ListAnime";
+import ListAnime from "../../../ListAnime";
 import TabPanel from "./components/TabPanel";
-import TrailerCard from "../TrailerCard";
+import TrailerCard from "../../../ui_pallette/TrailerCard";
 
 import generateA11yProps from "./helpers/generateA11yProps";
-import useChangeRoute from "../../helpers/hooks/useChangeRoute";
+import useChangeRoute from "../../../../helpers/hooks/useChangeRoute";
 
-import { AnimeRecommendationType, AnimeType } from "../../types/anime";
+import { AnimeRecommendationType, AnimeType } from "../../../../types/anime";
 
 type AnimeDetailContentProps = {
   recommendations: AnimeRecommendationType[];
