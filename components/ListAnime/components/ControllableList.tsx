@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import Grid from "@mui/material/Grid";
 
 import Error from "../../ui_pallette/Error";
-import AnimeCard from "../../AnimeCard";
+import AnimeCard from "../../ui_pallette/AnimeCard";
 import ListAnimeSkeleton from "./ListAnimeSkeleton";
-import Pagination from "../../Pagination";
+import Pagination from "../../ui_pallette/Pagination";
 
 import useAnimes from "../../../helpers/hooks/useAnimes";
 import { camelize } from "../../../helpers/camelize";

@@ -6,21 +6,21 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-import Image from "../ui_pallette/Image";
+import Image from "../../ui_pallette/Image";
 import Label from "./components/Label";
 
-import { AnimeType } from "../../types/anime";
-import { StyleType } from "../../types";
-import ScoreCard from "../ScoreCard";
+import { AnimeType } from "../../../types/anime";
+import { StyleType } from "../../../types";
+import ScoreCard from "../../ui_pallette/ScoreCard";
 import { LABEL_FIRST_ROW, LABEL_SECOND_ROW, LABEL_STATS } from "./constant";
-import formatDate from "../../helpers/formatDate";
-import Button from "../ui_pallette/Button";
+import formatDate from "../../../helpers/formatDate";
+import Button from "../../ui_pallette/Button";
 
 type AnimeDetailBanner = {
   anime: AnimeType;
 };
 
-const FavoriteButton = dynamic(() => import("../FavoriteButton"), {
+const FavoriteButton = dynamic(() => import("../../ui_pallette/FavoriteButton"), {
   ssr: false,
 });
 

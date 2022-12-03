@@ -1,8 +1,8 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 
-import AnimeDetailBanner from "../../components/AnimeDetailBanner";
+import AnimeDetailBanner from "../../components/anime/AnimeDetailBanner";
 import PageLayout from "../../layouts/PageLayout";
-import AnimeDetailContent from "../../components/AnimeDetailContent";
+import AnimeDetailContent from "../../components/anime/AnimeDetailContent";
 
 import {
   AnimeRecommendationResType,

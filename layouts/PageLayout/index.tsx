@@ -2,7 +2,7 @@ import { Container, Theme } from "@mui/material";
 import { ReactNode } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import Section from "../../components/Section";
+import Section from "../../components/ui_pallette/Section";
 
 type PageLayoutProps = {
   children: ReactNode;

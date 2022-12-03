@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
 import PageLayout from "../layouts/PageLayout";
-import Section from "../components/Section";
+import Section from "../components/ui_pallette/Section";
 
 const ListAnime = dynamic(() => import("../components/ListAnime"), {
   suspense: true,

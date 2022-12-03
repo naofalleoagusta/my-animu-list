@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 
-import AnimeCard from "../AnimeCard";
+import AnimeCard from "../ui_pallette/AnimeCard";
 import ControllableList from "./components/ControllableList";
 
 import { camelize } from "../../helpers/camelize";

@@ -3,9 +3,9 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import IconButton from "@mui/material/IconButton";
 
-import useFavorites from "../../helpers/hooks/useFavorites";
+import useFavorites from "../../../helpers/hooks/useFavorites";
 
-import { FavoriteAnimeType, StyleType } from "../../types";
+import { FavoriteAnimeType, StyleType } from "../../../types";
 
 type FavoriteButtonProps = { anime: FavoriteAnimeType };
 

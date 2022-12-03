@@ -1,14 +1,14 @@
 import Box from "@mui/material/Box";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { useState } from "react";
+import  Typography  from "@mui/material/Typography";
 
-import Button from "../ui_pallette/Button";
-import Image from "../ui_pallette/Image";
+import Button from "../Button";
+import Image from "../Image";
 
-import useChangeRoute from "../../helpers/hooks/useChangeRoute";
+import useChangeRoute from "../../../helpers/hooks/useChangeRoute";
 
-import { AnimeType } from "../../types/anime";
-import { Typography } from "@mui/material";
+import { AnimeType } from "../../../types/anime";
 
 type TrailerCardProps = Pick<AnimeType, "trailer" | "title">;
 

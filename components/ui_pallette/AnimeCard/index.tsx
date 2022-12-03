@@ -1,10 +1,10 @@
 import { Box, Grid, Typography } from "@mui/material";
 
-import Image from "../ui_pallette/Image";
-import Link from "../ui_pallette/Link";
+import Image from "../Image";
+import Link from "../Link";
 import ScoreCard from "../ScoreCard";
 
-import { AnimeType } from "../../types/anime";
+import { AnimeType } from "../../../types/anime";
 import { style } from "./AnimeCardStyle";
 
 type AnimeCardProps = Pick<
