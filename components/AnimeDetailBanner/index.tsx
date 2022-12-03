@@ -3,6 +3,8 @@ import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 import Image from "../ui_pallette/Image";
 import Label from "./components/Label";
@@ -12,6 +14,7 @@ import { StyleType } from "../../types";
 import ScoreCard from "../ScoreCard";
 import { LABEL_FIRST_ROW, LABEL_SECOND_ROW, LABEL_STATS } from "./constant";
 import formatDate from "../../helpers/formatDate";
+import Button from "../ui_pallette/Button";
 
 type AnimeDetailBanner = {
   anime: AnimeType;
@@ -92,6 +95,11 @@ const style: StyleType = {
 };
 
 const AnimeDetailBanner = ({ anime }: AnimeDetailBanner) => {
+  const router = useRouter();
+
+  const handleGoBack = () => {
+    router.back();
+  };
   return (
     <>
       <Box
@@ -120,6 +128,16 @@ const AnimeDetailBanner = ({ anime }: AnimeDetailBanner) => {
               />
             </Grid>
             <Grid item sx={style.contentContainer}>
+              <Button
+                onClick={handleGoBack}
+                sx={{
+                  mb: "8px",
+                  mt: { xs: "8px", sm: "0" },
+                  bgcolor: { xs: "secondary.main" },
+                }}
+              >
+                <ArrowBackIcon fontSize="small" /> Go Back ?
+              </Button>
               <Box sx={style.titleContainer}>
                 <Box>
                   <Typography variant="h1" sx={style.title}>
@@ -217,7 +235,9 @@ const AnimeDetailBanner = ({ anime }: AnimeDetailBanner) => {
               >
                 <Label
                   label="Aired"
-                  value={`${formatDate(anime.aired.from, true)} to ${
+                  value={`${
+                    anime.aired.from ? formatDate(anime.aired.from, true) : "?"
+                  } to ${
                     anime.aired.to ? formatDate(anime.aired.to, true) : "?"
                   }`}
                 />

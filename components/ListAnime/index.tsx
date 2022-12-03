@@ -46,15 +46,14 @@ const ListAnime = ({ param, title, recommendations }: ListAnimeProps) => {
               />
             ))
           ) : (
-            <Box
+            <Typography
+              variant="h2"
               sx={{
                 p: "12px",
               }}
             >
-              <Typography variant="h2">
-                No recommendations have been made for this title. 😢
-              </Typography>
-            </Box>
+              No recommendations has been made for this title. 😢
+            </Typography>
           )}
         </Grid>
       )}

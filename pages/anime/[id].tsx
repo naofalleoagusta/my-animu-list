@@ -20,55 +20,54 @@ export default function AnimeDetail({
   if (isFallback) {
     return <>loading..</>;
   }
-
-  return (
-    <PageLayout
-      banner={<AnimeDetailBanner anime={anime} />}
-      wrapBannerWithContainer={false}
-    >
-      <AnimeDetailContent anime={anime} recommendations={recommendations} />
-    </PageLayout>
-  );
+  if (anime) {
+    return (
+      <PageLayout
+        banner={<AnimeDetailBanner anime={anime} />}
+        wrapBannerWithContainer={false}
+      >
+        <AnimeDetailContent anime={anime} recommendations={recommendations} />
+      </PageLayout>
+    );
+  }
 }
 
 export const getStaticProps: GetStaticProps<{
-  anime: AnimeType;
+  anime: AnimeType | undefined;
   recommendations: AnimeRecommendationType[];
 }> = async ({ params }) => {
-  const res = await fetch(`${API_BASE_URL}/${params?.id || 1}`);
-  const anime = (await res.json()) as { data: AnimeType };
-  if (!res.ok) {
-    console.log(res);
-    throw new Error(`Failed to fetch anime, received status ${res.status}`);
-  }
+  let anime: { data: AnimeType | undefined } = { data: undefined };
+  try {
+    const res = await fetch(`${API_BASE_URL}/${params?.id || 1}`);
+    anime = (await res.json()) as { data: AnimeType | undefined };
+  } catch (_) {}
 
-  const resRecommendation = await fetch(
-    `${API_BASE_URL}/${params?.id || 1}/recommendations`
-  );
-  const recommendations =
-    (await resRecommendation.json()) as AnimeRecommendationResType;
-  const transformedRec = recommendations.data.map(
-    (dtRecommendation) => dtRecommendation.entry
-  );
-  if (!resRecommendation.ok) {
-    console.log(res);
-    throw new Error(
-      `Failed to fetch anime recommendation, received status ${resRecommendation.status}`
+  let recommendationsRes: AnimeRecommendationType[] = [];
+  try {
+    const res = await fetch(
+      `${API_BASE_URL}/${params?.id || 1}/recommendations`
     );
+    const recommendations = (await res.json()) as AnimeRecommendationResType;
+    recommendationsRes = recommendations?.data.map(
+      (dtRecommendation) => dtRecommendation.entry
+    );
+  } catch (error) {
+    recommendationsRes = [];
   }
 
   return {
     props: {
       anime: anime.data,
-      recommendations: transformedRec,
+      recommendations: recommendationsRes,
     },
-    revalidate: 86400, // In seconds
+    revalidate: 60, // In seconds
+    notFound: !anime.data,
   };
 };
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   return {
     paths: [],
-    fallback: true,
+    fallback: "blocking",
   };
 };

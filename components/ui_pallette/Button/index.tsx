@@ -5,7 +5,7 @@ const Button = ({ sx, children, ...props }: ButtonBaseProps) => {
     <ButtonBase
       sx={[
         {
-          fontSize: { xs: "12px", sm: "14px", lg: "16px" },
+          fontSize: { xs: "12px", sm: "14px" },
           height: "32px",
           color: "white",
           bgcolor: "primary.main",
@@ -19,6 +19,9 @@ const Button = ({ sx, children, ...props }: ButtonBaseProps) => {
             bgcolor: "secondary.dark",
             color: "secondary.100",
             cursor: "not-allowed",
+          },
+          "&:hover": {
+            bgcolor: "primary.dark",
           },
         }),
         ...(Array.isArray(sx) ? sx : [sx]),

@@ -47,13 +47,15 @@ const BannerCard = ({ anime }: BannerCardProps) => {
           <Typography variant="h1" sx={style.title}>
             {anime.title}
           </Typography>
-          <Box sx={style.dateWrapper}>
-            <CalendarMonthIcon sx={style.calendarIcon} color="secondary" />
-            <Typography variant="caption" sx={style.dateText}>
-              {formatDate(anime.aired.from)}
-              {!!anime.aired.to && ` - ${formatDate(anime.aired.to)}`}
-            </Typography>
-          </Box>
+          {!!anime.aired.from && (
+            <Box sx={style.dateWrapper}>
+              <CalendarMonthIcon sx={style.calendarIcon} color="secondary" />
+              <Typography variant="caption" sx={style.dateText}>
+                {formatDate(anime.aired.from)}
+                {!!anime.aired.to && ` - ${formatDate(anime.aired.to)}`}
+              </Typography>
+            </Box>
+          )}
         </Box>
       </Grid>
     </Grid>
