@@ -16,6 +16,7 @@ type SelectProps = {
     newValue: MultiValue<string> | SingleValue<string>,
     actionMeta: ActionMeta<string>
   ) => void;
+  label?: string;
 };
 
 const HEIGHT = {
@@ -29,10 +30,12 @@ const Select = ({
   value,
   isMulti,
   onChange,
+  label,
 }: SelectProps) => {
   const isSmall = useMediaQuery("(max-width:389px)");
   return (
     <ReactSelect
+      aria-label={label}
       options={options}
       isMulti={isMulti}
       styles={{
