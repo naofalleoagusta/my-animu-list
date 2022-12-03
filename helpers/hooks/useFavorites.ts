@@ -44,7 +44,6 @@ const useHydratedFavorites = ((selector) => {
   const store = useFavorites(selector);
   const [hydrated, setHydrated] = useState(false);
   useEffect(() => setHydrated(true), []);
-  console.log(hydrated ? store : selector(EMPTY_STATE));
   return hydrated ? store : selector(EMPTY_STATE);
 }) as typeof useFavorites;
 

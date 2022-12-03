@@ -1,14 +1,22 @@
 import { Box, Tab, Tabs } from "@mui/material";
-import { useState } from "react";
+import { useState, Suspense } from "react";
+import dynamic from "next/dynamic";
 
-import ListAnime from "../../../ListAnime";
-import TabPanel from "./components/TabPanel";
 import TrailerCard from "../../../ui_pallette/TrailerCard";
 
 import generateA11yProps from "./helpers/generateA11yProps";
 import useChangeRoute from "../../../../helpers/hooks/useChangeRoute";
 
 import { AnimeRecommendationType, AnimeType } from "../../../../types/anime";
+import Skeleton from "../../../ui_pallette/Skeleton";
+
+const ListAnime = dynamic(() => import("../../../ListAnime"), {
+  suspense: true,
+});
+
+const TabPanel = dynamic(() => import("./components/TabPanel"), {
+  suspense: true,
+});
 
 type AnimeDetailContentProps = {
   recommendations: AnimeRecommendationType[];
@@ -70,12 +78,20 @@ const AnimeDetailContent = ({
           />
         ))}
       </Tabs>
-      <TabPanel value={value} index={0}>
-        <TrailerCard title={anime.title} trailer={anime.trailer} />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <ListAnime title="" recommendations={recommendations} />
-      </TabPanel>
+      <Suspense
+        fallback={
+          <>
+            <Skeleton width="100%" height="400px"></Skeleton>
+          </>
+        }
+      >
+        <TabPanel value={value} index={0}>
+          <TrailerCard title={anime.title} trailer={anime.trailer} />
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <ListAnime title="" recommendations={recommendations} />
+        </TabPanel>
+      </Suspense>
     </Box>
   );
 };

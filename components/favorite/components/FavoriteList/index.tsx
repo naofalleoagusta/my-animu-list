@@ -9,7 +9,6 @@ import FavoriteCard from "../FavoriteCard";
 
 const FavoriteList = () => {
   const animes = useFavorites((store) => store.animes);
-  console.log(animes.length, "test");
   if (!animes.length) {
     return (
       <>
