@@ -116,6 +116,7 @@ const AnimeDetailBanner = ({ anime }: AnimeDetailBanner) => {
                 alt={`${anime.title} alt`}
                 height={318}
                 width={225}
+                key={anime.images.webp.image_url}
               />
             </Grid>
             <Grid item sx={style.contentContainer}>

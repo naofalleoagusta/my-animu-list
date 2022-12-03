@@ -37,8 +37,13 @@ const ListAnime = ({ param, title, recommendations }: ListAnimeProps) => {
       ) : (
         <Grid container sx={style.animeList}>
           {!!recommendations?.length ? (
-            recommendations?.map((dtAnime, idx) => (
-              <AnimeCard {...dtAnime} score={null} scored_by={null} key={idx} />
+            recommendations?.map((dtAnime) => (
+              <AnimeCard
+                {...dtAnime}
+                score={null}
+                scored_by={null}
+                key={`${dtAnime.mal_id}`}
+              />
             ))
           ) : (
             <Box
