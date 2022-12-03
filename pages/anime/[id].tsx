@@ -28,6 +28,7 @@ export default function AnimeDetail({
           image: anime.images.webp.image_url,
           url: `${APP_BASE_URL}anime/${anime.mal_id}`,
         })}
+        description={anime.background || anime.title}
       >
         <AnimeDetailContent anime={anime} recommendations={recommendations} />
       </PageLayout>

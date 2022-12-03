@@ -11,6 +11,7 @@ export default function AnimeDetail() {
       banner={<UpperBanner image={BANNER} />}
       wrapBannerWithContainer={false}
       title="Favorite | My Animu List"
+      description="Favorite Page"
     >
       <Typography
         variant="h1"

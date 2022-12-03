@@ -12,6 +12,7 @@ type PageLayoutProps = {
   wrapBannerWithContainer?: boolean;
   metaTags?: MetaTagsType;
   title: string;
+  description: string;
 };
 
 const PageLayout = ({
@@ -20,6 +21,7 @@ const PageLayout = ({
   wrapBannerWithContainer = true,
   metaTags,
   title,
+  description,
 }: PageLayoutProps) => {
   const isMobile = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
@@ -32,6 +34,7 @@ const PageLayout = ({
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <title>{title}</title>
         <meta name="title" content={title} />
+        <meta name="description" content={description} />
         <meta property="og:type" content="website" />
         {metaTags &&
           Object.entries(metaTags).map((metaTag) => (

@@ -75,6 +75,7 @@ const Pagination = ({ count, onChange, page }: PaginationProps) => {
           placeholder={`${page || 1}`}
           value={`${page || 1}`}
           onChange={handleOnChange}
+          label="Pagination Select"
         />
       </Box>
     </Box>

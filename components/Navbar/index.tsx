@@ -43,7 +43,7 @@ const Navbar = () => {
           position: "fixed",
           top: 0,
           left: 0,
-          zIndex: 50,
+          zIndex: 100,
           background: isScrolled ? "rgba(0, 61, 118,.4)" : "transparent",
           backdropFilter: isScrolled ? "blur(5px)" : "unset",
           transition: "all 250ms ease-in-out",
@@ -70,7 +70,11 @@ const Navbar = () => {
               >
                 MyAnimuList
               </SLink>
-              <IconButton id="navbar-menu-btn" onClick={toggleDrawer}>
+              <IconButton
+                id="navbar-menu-btn"
+                onClick={toggleDrawer}
+                aria-label="Navbar Button"
+              >
                 <MenuIcon sx={{ color: "white" }} />
               </IconButton>
             </Container>

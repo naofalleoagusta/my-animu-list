@@ -39,6 +39,9 @@ const QUERIES_LIST_ANIME: QueryListAnimeType[] = [
   },
 ];
 
+const description =
+  "Welcome to MyAnimuList, the world's most active online anime and manga community and database. Join the online community, create your anime and manga list, read reviews, explore the forums, follow news, and so much more!";
+
 export default function Home() {
   return (
     <PageLayout
@@ -50,11 +53,11 @@ export default function Home() {
       title="Home | My Animu List"
       metaTags={generateMetaTag({
         url: APP_BASE_URL,
-        description:
-          "Welcome to MyAnimuList, the world's most active online anime and manga community and database. Join the online community, create your anime and manga list, read reviews, explore the forums, follow news, and so much more!",
+        description: description,
         image:
           "https://og-image.vercel.app/Home%20%7C%20My%20Animu%20List.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-black.svg",
       })}
+      description={description}
     >
       <Section
         sx={{

@@ -17,6 +17,7 @@ const Button = ({
   const isContain = variant === "contain";
   return (
     <ButtonBase
+      aria-label={`${children} Button`}
       sx={[
         {
           fontSize: { xs: "12px", sm: "14px" },
