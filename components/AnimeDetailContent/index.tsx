@@ -1,35 +1,33 @@
 import { Box, Tab, Tabs } from "@mui/material";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useState } from "react";
 
 import ListAnime from "../ListAnime";
 import TabPanel from "./components/TabPanel";
+import TrailerCard from "../TrailerCard";
 
 import generateA11yProps from "./helpers/generateA11yProps";
+import useChangeRoute from "../../helpers/hooks/useChangeRoute";
 
-import { AnimeRecommendationType } from "../../types/anime";
+import { AnimeRecommendationType, AnimeType } from "../../types/anime";
 
 type AnimeDetailContentProps = {
   recommendations: AnimeRecommendationType[];
-};
-
-type QueryParamType = {
-  id: string;
+  anime: AnimeType;
 };
 
 const TABS = ["Trailer", "Recommendations"];
 
-const AnimeDetailContent = ({ recommendations }: AnimeDetailContentProps) => {
+const AnimeDetailContent = ({
+  anime,
+  recommendations,
+}: AnimeDetailContentProps) => {
   const [value, setValue] = useState(0);
-  const { query } = useRouter();
 
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
-  useEffect(() => {
-    setValue(0);
-  }, [query?.id]);
+  useChangeRoute({ callback: () => setValue(0) });
 
   return (
     <Box sx={{ width: "100%", padding: "12px 0" }}>
@@ -72,7 +70,9 @@ const AnimeDetailContent = ({ recommendations }: AnimeDetailContentProps) => {
           />
         ))}
       </Tabs>
-      <TabPanel value={value} index={0}></TabPanel>
+      <TabPanel value={value} index={0}>
+        <TrailerCard title={anime.title} trailer={anime.trailer} />
+      </TabPanel>
       <TabPanel value={value} index={1}>
         <ListAnime title="" recommendations={recommendations} />
       </TabPanel>

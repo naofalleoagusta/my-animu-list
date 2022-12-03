@@ -66,6 +66,15 @@ export type TrailerType = {
   youtube_id: string;
   url: string;
   embed_url: string;
+  images: TrailerImageType;
+};
+
+export type TrailerImageType = {
+  image_url: string;
+  large_image_url: string;
+  maximum_image_url: string;
+  medium_image_url: string;
+  small_image_url: string;
 };
 
 export type TitleType = {

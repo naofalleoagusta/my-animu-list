@@ -13,9 +13,11 @@ const TabPanel = ({ children, index, value }: TabPanelProps) => {
       hidden={value !== index}
       id={`anime-detail-tabpanel-${index}`}
       aria-labelledby={`anime-detail-${index}`}
-      sx={{ p: "8px 0" }}
+      sx={{ p: "24px 0" }}
     >
-      {value === index && <div>{children}</div>}
+      <div style={{ display: index === value ? "block" : "none" }}>
+        {children}
+      </div>
     </Box>
   );
 };

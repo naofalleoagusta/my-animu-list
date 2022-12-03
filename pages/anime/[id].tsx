@@ -20,7 +20,7 @@ export default function AnimeDetail({
       banner={<AnimeDetailBanner anime={anime} />}
       wrapBannerWithContainer={false}
     >
-      <AnimeDetailContent recommendations={recommendations} />
+      <AnimeDetailContent anime={anime} recommendations={recommendations} />
     </PageLayout>
   );
 }
