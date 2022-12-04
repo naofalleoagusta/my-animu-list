@@ -90,6 +90,7 @@ const FavoriteButton = ({ anime, backgroundColor }: FavoriteButtonProps) => {
           }),
         ]}
         id={`favorite-btn-${anime.mal_id}`}
+        aria-label={`Favorite Button ${anime.title}`}
       >
         <FavoriteBorderIcon
           color="error"

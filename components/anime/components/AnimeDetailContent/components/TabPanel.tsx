@@ -1,4 +1,7 @@
 import Box from "@mui/material/Box";
+import { useEffect, useState } from "react";
+
+import Skeleton from "../../../../ui_pallette/Skeleton";
 
 type TabPanelProps = {
   children?: React.ReactNode;
@@ -7,6 +10,12 @@ type TabPanelProps = {
 };
 
 const TabPanel = ({ children, index, value }: TabPanelProps) => {
+  const [shouldRender, setShouldRender] = useState(false);
+  useEffect(() => {
+    if (!shouldRender && index === value) {
+      setShouldRender(true);
+    } // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [index, value]);
   return (
     <Box
       role="tabpanel"
@@ -16,7 +25,7 @@ const TabPanel = ({ children, index, value }: TabPanelProps) => {
       sx={{ p: "24px 0" }}
     >
       <div style={{ display: index === value ? "block" : "none" }}>
-        {children}
+        {shouldRender ? children : <Skeleton width="100%" height="400px" />}
       </div>
     </Box>
   );

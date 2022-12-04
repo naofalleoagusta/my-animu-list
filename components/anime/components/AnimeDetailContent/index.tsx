@@ -106,7 +106,6 @@ const AnimeDetailContent = ({
       <Suspense
         fallback={
           <>
-            <Skeleton width="100%" height="400px"></Skeleton>
           </>
         }
       >
