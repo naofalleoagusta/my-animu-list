@@ -18,7 +18,7 @@ type PageLayoutProps = {
 const PageLayout = ({
   banner,
   children,
-  wrapBannerWithContainer = true,
+  wrapBannerWithContainer = false,
   metaTags,
   title,
   description,

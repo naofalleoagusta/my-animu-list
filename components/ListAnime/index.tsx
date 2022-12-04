@@ -1,7 +1,9 @@
 import { Box, Grid, Typography } from "@mui/material";
+import isEqual from "lodash.isequal";
+import { memo } from "react";
 
 import AnimeCard from "../ui_pallette/AnimeCard";
-import ControllableList from "./components/ControllableList";
+import ListFetchedAnime from "./components/ListFetchedAnime";
 
 import { camelize } from "../../helpers/camelize";
 
@@ -33,7 +35,7 @@ const ListAnime = ({ param, title, recommendations }: ListAnimeProps) => {
   return (
     <Box id={`${camelize(title)}-list-anime`}>
       {!recommendations && !!param ? (
-        <ControllableList title={title} param={param} />
+        <ListFetchedAnime title={title} param={param} />
       ) : (
         <Grid container sx={style.animeList}>
           {!!recommendations?.length ? (
@@ -62,4 +64,6 @@ const ListAnime = ({ param, title, recommendations }: ListAnimeProps) => {
   );
 };
 
-export default ListAnime;
+export default memo(ListAnime, (prevProps, nextProps) =>
+  isEqual(prevProps, nextProps)
+);

@@ -12,7 +12,7 @@ const FavoriteList = () => {
   if (!animes.length) {
     return (
       <>
-        <Typography variant="h2">
+        <Typography variant="h2" sx={{ mt: { xs: "86px", md: "58px" } }}>
           You have not set any favorite anime, yet.
         </Typography>
         <Link href="/">

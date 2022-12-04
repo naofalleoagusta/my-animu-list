@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import FavoriteList from "../components/favorite/components/FavoriteList";
 import UpperBanner from "../components/ui_pallette/UpperBanner";
 import PageLayout from "../layouts/PageLayout";
@@ -9,17 +9,26 @@ export default function AnimeDetail() {
   return (
     <PageLayout
       banner={<UpperBanner image={BANNER} />}
-      wrapBannerWithContainer={false}
       title="Favorite | My Animu List"
       description="Favorite Page"
     >
-      <Typography
-        variant="h1"
-        sx={{ p: "24px 0", fontSize: { xs: "32px", md: "48px" } }}
+      <Box
+        sx={{
+          transform: { xs: "translateY(-150px)", lg: "translateY(-130px)" },
+        }}
       >
-        Your Favorite Anime
-      </Typography>
-      <FavoriteList />
+        <Typography
+          variant="h1"
+          sx={{
+            p: "24px 0",
+            fontSize: { xs: "32px", md: "48px" },
+            color: "white",
+          }}
+        >
+          Your Favorite Anime
+        </Typography>
+        <FavoriteList />
+      </Box>
     </PageLayout>
   );
 }

@@ -36,6 +36,7 @@ const FavoriteCard = ({ anime }: FavoriteCardProps) => {
             "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
           position: "relative",
           transition: "all 300ms ease-in-out",
+          background: "white",
         })}
       >
         <Box
@@ -47,6 +48,9 @@ const FavoriteCard = ({ anime }: FavoriteCardProps) => {
             alignItems: "center",
             borderRadius: "10px 0 0 10px",
             height: "170px",
+            "&>img": {
+              height: "100% !important",
+            },
           })}
         >
           <Image

@@ -1,10 +1,12 @@
-import Box from "@mui/material/Box";
+import Box, { BoxProps } from "@mui/material/Box";
+import { ReactNode } from "react";
 
-type UpperBannerProps = {
+type UpperBannerProps = Pick<BoxProps, "sx"> & {
   image: string;
+  children?: ReactNode;
 };
 
-const UpperBanner = ({ image }: UpperBannerProps) => {
+const UpperBanner = ({ image, children, sx }: UpperBannerProps) => {
   return (
     <Box
       sx={{
@@ -13,18 +15,23 @@ const UpperBanner = ({ image }: UpperBannerProps) => {
       }}
     >
       <Box
-        sx={{
-          width: "100%",
-          height: { xs: "250px", sm: "300px" },
-          backgroundRepeat: "no-repeat",
-          bacgkroundPosition: "center center",
-          backgroundSize: "cover",
-          filter:
-            "blur(4px) sepia(100%) hue-rotate(185deg) saturate(300%)  brightness(70%)",
-          transform: `scale(1.05)`,
-          backgroundImage: `url('${image}')`,
-        }}
-      />
+        sx={[
+          {
+            width: "100%",
+            height: { xs: "250px", sm: "300px" },
+            backgroundRepeat: "no-repeat",
+            bacgkroundPosition: "center center",
+            backgroundSize: "cover",
+            filter:
+              "blur(4px) sepia(100%) hue-rotate(185deg) saturate(300%)  brightness(70%)",
+            transform: `scale(1.05)`,
+            backgroundImage: `url('${image}')`,
+          },
+          ...(Array.isArray(sx) ? sx : [sx]),
+        ]}
+      >
+        {children}
+      </Box>
     </Box>
   );
 };

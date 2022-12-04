@@ -8,7 +8,8 @@ const Chip = ({ sx, ...props }: ChipProps) => {
         {
           fontSize: { xs: "14px", sm: "16px" },
           height: { xs: "18px", sm: "26px" },
-          bgcolor: "primary.main",
+          bgcolor: "secondary.main",
+          borderRadius: "8px",
         },
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}

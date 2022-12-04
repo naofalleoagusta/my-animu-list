@@ -3,6 +3,7 @@ import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 type ButtonProps = ButtonBaseProps & {
   variant?: "contain" | "outlined";
   fullWidth?: boolean;
+  ariaLabel?: string;
 };
 
 const Button = ({
@@ -12,17 +13,18 @@ const Button = ({
   children,
   variant = "contain",
   fullWidth,
+  ariaLabel,
   ...props
 }: ButtonProps) => {
   const isContain = variant === "contain";
   return (
     <ButtonBase
-      aria-label={`${children} Button`}
+      aria-label={`${ariaLabel || children} Button`}
       sx={[
         {
           fontSize: { xs: "12px", sm: "14px" },
           height: "32px",
-          padding: "16px ",
+          padding: { xs: "10px", sm: "16px " },
           fontWeight: 600,
           borderRadius: "6px",
           boxSizing: "borderBox",

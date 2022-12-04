@@ -21,7 +21,6 @@ export default function AnimeDetail({
     return (
       <PageLayout
         banner={<AnimeDetailBanner anime={anime} />}
-        wrapBannerWithContainer={false}
         title={`${anime.title} | My Animu List`}
         metaTags={generateMetaTag({
           description: anime.background || anime.title,

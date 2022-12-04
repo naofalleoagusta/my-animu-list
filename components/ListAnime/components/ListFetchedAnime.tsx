@@ -44,12 +44,12 @@ const style: StyleType = {
   },
 };
 
-type ControllableListProps = {
+type ListFetchedAnimeProps = {
   param: AnimeInputType;
   title: string;
 };
 
-const ControllableList = ({ param, title }: ControllableListProps) => {
+const ListFetchedAnime = ({ param, title }: ListFetchedAnimeProps) => {
   const animeListRef = useRef<HTMLDivElement>(null);
 
   const [queryParam, setQueryParam] = useState<AnimeInputType>(param);
@@ -105,4 +105,4 @@ const ControllableList = ({ param, title }: ControllableListProps) => {
   );
 };
 
-export default ControllableList;
+export default ListFetchedAnime;

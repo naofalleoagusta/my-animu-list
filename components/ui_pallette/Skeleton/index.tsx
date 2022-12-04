@@ -1,6 +1,8 @@
-import MuiSkeleton from "@mui/material/Skeleton";
+import MuiSkeleton, {
+  SkeletonProps as MuiSkeletonProps,
+} from "@mui/material/Skeleton";
 
-type SkeletonProps = {
+type SkeletonProps = Pick<MuiSkeletonProps, "sx"> & {
   width: string;
   height: string;
 };

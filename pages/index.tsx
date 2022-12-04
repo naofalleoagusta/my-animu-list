@@ -13,7 +13,7 @@ const ListAnime = dynamic(() => import("../components/ListAnime"), {
   suspense: true,
 });
 
-const Banner = dynamic(() => import("../components/HomeBanner"), {
+const Banner = dynamic(() => import("../components/home/components/Banner"), {
   suspense: true,
 });
 
