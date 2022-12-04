@@ -20,6 +20,7 @@ export default function Favorite() {
             sm: "24px",
             md: "0",
           },
+          minHeight: { xs: "calc(70vh - 250px)", sm: "calc(72.125vh - 300px)" },
         }}
       >
         <Typography
