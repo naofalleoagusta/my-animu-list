@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import TrailerCard from "../../../ui_pallette/TrailerCard";
 
 import generateA11yProps from "./helpers/generateA11yProps";
+import scrollToView from "../../../../helpers/scrollToView";
 import useChangeRoute from "../../../../helpers/hooks/useChangeRoute";
 
 import { AnimeRecommendationType, AnimeType } from "../../../../types/anime";
@@ -33,6 +34,7 @@ const AnimeDetailContent = ({
 
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
+    scrollToView(`anime-tabs-container-${anime.mal_id}`);
   };
 
   useChangeRoute({ callback: () => setValue(0) });
@@ -48,6 +50,7 @@ const AnimeDetailContent = ({
           lg: "0",
         },
       }}
+      id={`anime-tabs-container-${anime.mal_id}`}
     >
       <Tabs
         value={value}
@@ -67,9 +70,18 @@ const AnimeDetailContent = ({
             width: "100%",
             backgroundColor: "#635ee7",
           },
-          position: { md: "sticky" },
-          top: { md: 90 },
-          pt: { md: "12px" },
+
+          ...(value === 1
+            ? {
+                position: { md: "sticky" },
+                top: { md: 75 },
+                pt: { md: "12px" },
+              }
+            : {
+                position: { md: "initial" },
+                top: { md: "unset" },
+                pt: { md: "0" },
+              }),
           zIndex: 20,
           background: "white",
         })}
