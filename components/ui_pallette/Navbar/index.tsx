@@ -1,10 +1,12 @@
 import { Box, Container, styled } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
+import dynamic from "next/dynamic";
 
-import Drawer from "./components/Drawer";
 import Link from "../Link";
+
+const Drawer = dynamic(() => import("./components/Drawer"), { suspense: true });
 
 const SLink = styled(Link)(() => ({
   color: "white",
@@ -81,7 +83,9 @@ const Navbar = () => {
           </nav>
         </header>
       </Box>
-      <Drawer openDrawer={openDrawer} toggleDrawer={toggleDrawer} />
+      <Suspense fallback={<></>}>
+        <Drawer openDrawer={openDrawer} toggleDrawer={toggleDrawer} />
+      </Suspense>
     </>
   );
 };

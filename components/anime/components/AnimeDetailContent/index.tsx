@@ -43,7 +43,7 @@ const AnimeDetailContent = ({
     <Box
       sx={{
         width: "100%",
-        padding: "12px 0",
+        padding: "0 0 12px 0",
         background: "white",
         minHeight: {
           xs: "500px",
@@ -70,17 +70,15 @@ const AnimeDetailContent = ({
             width: "100%",
             backgroundColor: "#635ee7",
           },
-
+          pt: { md: "6px" },
           ...(value === 1
             ? {
                 position: { md: "sticky" },
                 top: { md: 75 },
-                pt: { md: "12px" },
               }
             : {
                 position: { md: "initial" },
                 top: { md: "unset" },
-                pt: { md: "0" },
               }),
           zIndex: 20,
           background: "white",

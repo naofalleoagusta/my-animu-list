@@ -15,7 +15,7 @@ const style: StyleType = {
 const Footer = () => {
   return (
     <footer>
-      <Box sx={{ bgcolor: "primary.dark", py: "56px", mt: "24px" }}>
+      <Box sx={{ bgcolor: "primary.main", py: "56px", mt: "24px" }}>
         <Container
           maxWidth="lg"
           sx={{
