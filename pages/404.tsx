@@ -1,16 +1,18 @@
 import { Box, Typography } from "@mui/material";
-import FavoriteList from "../components/favorite/components/FavoriteList";
+
+import Link from "../components/ui_pallette/Link";
 import UpperBanner from "../components/ui_pallette/UpperBanner";
 import PageLayout from "../layouts/PageLayout";
+import Button from "../components/ui_pallette/Button";
 
 const BANNER = "https://cdn.myanimelist.net/images/anime/1764/126627.jpg";
 
-export default function Favorite() {
+export default function FourOhFour() {
   return (
     <PageLayout
       banner={<UpperBanner image={BANNER} />}
-      title="Favorite | My Animu List"
-      description="Favorite Page"
+      title="404 Page Not Found | My Animu List"
+      description="404 Page Not Found"
     >
       <Box
         sx={{
@@ -30,9 +32,19 @@ export default function Favorite() {
             color: "white",
           }}
         >
-          Your Favorite Anime
+          4😲4 Page Not Found.
         </Typography>
-        <FavoriteList />
+        <Box sx={{ mt: { xs: "86px", md: "58px" } }}>
+          <Link href="/">
+            <Button
+              variant="outlined"
+              id="404-btn"
+              ariaLabel="Redirect Home Button"
+            >
+              Go Back Home?
+            </Button>
+          </Link>
+        </Box>
       </Box>
     </PageLayout>
   );
