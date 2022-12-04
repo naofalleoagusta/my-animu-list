@@ -22,13 +22,14 @@ export default function FourOhFour() {
             sm: "24px",
             md: "0",
           },
+          height: { xs: "calc(70vh - 250px)", sm: "calc(72.125vh - 300px)" },
         }}
       >
         <Typography
           variant="h1"
           sx={{
             p: "24px 0",
-            fontSize: { xs: "32px", md: "48px" },
+            fontSize: { xs: "28px", md: "48px" },
             color: "white",
           }}
         >

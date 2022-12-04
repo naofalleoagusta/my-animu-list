@@ -1,11 +1,7 @@
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 
-import Link from "../Link";
-
-import NAVIGATIONS from "./constant";
 import { StyleType } from "../../../types";
 
 const style: StyleType = {
@@ -19,7 +15,7 @@ const style: StyleType = {
 const Footer = () => {
   return (
     <footer>
-      <Box sx={{ bgcolor: "primary.main", py: "56px", mt: "24px" }}>
+      <Box sx={{ bgcolor: "primary.dark", py: "56px", mt: "24px" }}>
         <Container
           maxWidth="lg"
           sx={{
