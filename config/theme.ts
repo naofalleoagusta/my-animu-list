@@ -50,6 +50,11 @@ const theme = createTheme({
       fontWeight: 800,
       letterSpacing: "-1px",
     },
+    h3: {
+      fontSize: "24px",
+      fontWeight: 500,
+      letterSpacing: "-0.5px",
+    },
   },
   components: {
     MuiLink: {

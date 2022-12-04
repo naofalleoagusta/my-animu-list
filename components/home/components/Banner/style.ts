@@ -30,8 +30,8 @@ const style: StyleType = {
     flexBasis: { xs: "60%", md: "60%" },
     flexShrink: 0,
     p: {
-      xs: "16px",
-      sm: "32px",
+      xs: "16px 0 16px 16px",
+      sm: "32px 0 32px 32px",
     },
   },
   contentBannerWrapper: {
