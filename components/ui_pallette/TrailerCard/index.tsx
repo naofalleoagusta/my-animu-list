@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { useState } from "react";
-import  Typography  from "@mui/material/Typography";
+import Typography from "@mui/material/Typography";
 
 import Button from "../Button";
 import Image from "../Image";
@@ -24,43 +24,50 @@ const TrailerCard = ({ trailer, title }: TrailerCardProps) => {
   if (trailer.images.medium_image_url && trailer.embed_url) {
     return !showYoutube ? (
       <Box
-        sx={() => ({
-          width: "100%",
-          position: "relative",
-          "& > img": {
-            filter: "blur(3px) brightness(70%)",
-            transition: "all 300ms ease-in-out",
-          },
-          "&:hover": {
-            "& > img": {
-              filter: "blur(4px) brightness(60%)",
-            },
-          },
-          borderRadius: "5px",
-          cursor: "pointer",
-        })}
-        onClick={handleOnClick}
+        sx={{
+          paddingRight: { xs: "16px", sm: "24px", md: "0px" },
+        }}
       >
-        <Image
-          src={trailer.images.medium_image_url}
-          width={320}
-          height={180}
-          alt={`${title} trailer banner`}
-          keyValue={trailer.images.medium_image_url}
-        />
-        <Button
-          sx={{
-            borderRadius: "50%",
-            width: "60px",
-            height: "60px",
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-          }}
+        <Box
+          sx={() => ({
+            width: "100%",
+            position: "relative",
+            "& > img": {
+              filter: "blur(3px) brightness(70%)",
+              transition: "all 300ms ease-in-out",
+            },
+            "&:hover": {
+              "& > img": {
+                filter: "blur(4px) brightness(60%)",
+              },
+            },
+            borderRadius: "5px",
+            cursor: "pointer",
+            overflow: "hidden",
+          })}
+          onClick={handleOnClick}
         >
-          <PlayArrowIcon fontSize="large" />
-        </Button>
+          <Image
+            src={trailer.images.medium_image_url}
+            width={320}
+            height={180}
+            alt={`${title} trailer banner`}
+            keyValue={trailer.images.medium_image_url}
+          />
+          <Button
+            sx={{
+              borderRadius: "50%",
+              width: { xs: "45px", sm: "60px" },
+              height: { xs: "45px", sm: "60px" },
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            <PlayArrowIcon fontSize="large" />
+          </Button>
+        </Box>
       </Box>
     ) : (
       <Box

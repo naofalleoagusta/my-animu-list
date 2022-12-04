@@ -38,7 +38,17 @@ const AnimeDetailContent = ({
   useChangeRoute({ callback: () => setValue(0) });
 
   return (
-    <Box sx={{ width: "100%", padding: "12px 0" }}>
+    <Box
+      sx={{
+        width: "100%",
+        padding: "12px 0",
+        background: "white",
+        minHeight: {
+          xs: "500px",
+          lg: "0",
+        },
+      }}
+    >
       <Tabs
         value={value}
         onChange={handleChange}
@@ -57,6 +67,11 @@ const AnimeDetailContent = ({
             width: "100%",
             backgroundColor: "#635ee7",
           },
+          position: { md: "sticky" },
+          top: { md: 90 },
+          pt: { md: "12px" },
+          zIndex: 20,
+          background: "white",
         })}
       >
         {TABS.map((dtTab, idx) => (

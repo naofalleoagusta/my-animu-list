@@ -26,6 +26,7 @@ const PageLayout = ({
   const isMobile = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
   );
+
   return (
     <>
       <Head>
@@ -66,7 +67,9 @@ const PageLayout = ({
       ) : (
         banner
       )}
-      <Container maxWidth="lg">{children}</Container>
+      <Container maxWidth="lg" sx={{ paddingRight: { xs: "0", md: "24px" } }}>
+        {children}
+      </Container>
     </>
   );
 };

@@ -14,14 +14,14 @@ import { ANIMES_QUERY_PARAM } from "../../constant";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const BANNER = "https://cdn.myanimelist.net/images/anime/1764/126627.jpg";
-
 const HomeBanner = () => {
-  const [image, setImage] = useState(BANNER);
+  const [image, setImage] = useState("");
   const { animes, error, loading } = useAnimes(ANIMES_QUERY_PARAM);
 
   const handleChangeBackground = (idx: number) => {
-    setImage(animes?.data?.[idx]?.images.webp.large_image_url || BANNER);
+    if (animes) {
+      setImage(animes?.data?.[idx]?.images.webp.large_image_url);
+    }
   };
 
   if (error) {
@@ -99,7 +99,7 @@ const HomeBanner = () => {
             delay: 2000,
           }}
           onSlideChange={(swiper) => {
-            handleChangeBackground(swiper.previousIndex);
+            handleChangeBackground(swiper.realIndex);
           }}
         >
           {animes?.data?.map((dtAnime, idx) => (

@@ -16,7 +16,7 @@ const UpperBanner = ({ image, children, sx }: UpperBannerProps) => {
     >
       <Box
         sx={[
-          {
+          (theme) => ({
             width: "100%",
             height: { xs: "250px", sm: "300px" },
             backgroundRepeat: "no-repeat",
@@ -25,8 +25,12 @@ const UpperBanner = ({ image, children, sx }: UpperBannerProps) => {
             filter:
               "blur(4px) sepia(100%) hue-rotate(185deg) saturate(300%)  brightness(70%)",
             transform: `scale(1.05)`,
-            backgroundImage: `url('${image}')`,
-          },
+            ...(!image
+              ? {
+                  backgroundColor: theme.palette.primary.main,
+                }
+              : { backgroundImage: `url('${image}')` }),
+          }),
           ...(Array.isArray(sx) ? sx : [sx]),
         ]}
       >

@@ -61,7 +61,7 @@ const style: StyleType = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    flexWrap: { xs: "wrap", sm: "noWrap" },
+    flexWrap: "nowrap",
     gap: "8px",
   },
   title: {
@@ -119,11 +119,13 @@ const AnimeDetailBanner = ({ anime }: AnimeDetailBanner) => {
                   bgcolor: "secondary.main",
                   borderColor: theme.palette.secondary.main,
                 })}
+                key={`detail-${anime.mal_id}`}
+                ariaLabel="Back Button"
               >
                 <ArrowBackIcon fontSize="small" /> Go Back ?
               </Button>
               <Box sx={style.titleContainer}>
-                <Box>
+                <Box sx={{ flexGrow: 1 }}>
                   <Typography variant="h1" sx={style.title}>
                     {anime.title}
                   </Typography>
@@ -131,14 +133,16 @@ const AnimeDetailBanner = ({ anime }: AnimeDetailBanner) => {
                     {anime.aired.prop.from.year}
                   </Typography>
                 </Box>
-                <FavoriteButton
-                  anime={{
-                    mal_id: anime.mal_id,
-                    score: anime.score,
-                    title: anime.title,
-                    images: anime.images,
-                  }}
-                />
+                <Box sx={{ flexShrink: 0 }}>
+                  <FavoriteButton
+                    anime={{
+                      mal_id: anime.mal_id,
+                      score: anime.score,
+                      title: anime.title,
+                      images: anime.images,
+                    }}
+                  />
+                </Box>
               </Box>
               <Box
                 sx={{

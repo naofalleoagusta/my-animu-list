@@ -33,18 +33,20 @@ export const style: StyleType = {
       transition: "all 300ms ease-in-out",
       bgcolor: "unset",
     },
-    () => ({
-      "&:hover": {
-        scale: "105%",
-        zIndex: 10,
-        "& .scoreContainer": {
-          opacity: 1,
-        },
-        "& .titleContainer": {
-          bottom: "0px",
-        },
-        "& >img": {
-          filter: "blur(1px) brightness(50%)",
+    (theme) => ({
+      [theme.breakpoints.up("lg")]: {
+        "&:hover": {
+          scale: "105%",
+          zIndex: 10,
+          "& .scoreContainer": {
+            opacity: 1,
+          },
+          "& .titleContainer": {
+            bottom: "0px",
+          },
+          "& >img": {
+            filter: "blur(1px) brightness(50%)",
+          },
         },
       },
       "& >img": {
@@ -65,7 +67,7 @@ export const style: StyleType = {
     top: "14px",
     left: "14px",
     transition: "all 300ms ease-in-out",
-    zIndex: 100,
+    zIndex: 40,
   },
   titleContainer: {
     width: "calc(100% - 8px)",

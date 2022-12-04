@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 import isEqual from "lodash.isequal";
-import { memo } from "react";
+import { memo, useEffect, useRef } from "react";
 
 import AnimeCard from "../ui_pallette/AnimeCard";
 import ListFetchedAnime from "./components/ListFetchedAnime";
@@ -32,12 +32,20 @@ const style: StyleType = {
 };
 
 const ListAnime = ({ param, title, recommendations }: ListAnimeProps) => {
+  const animeListRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (animeListRef?.current) {
+      animeListRef.current.scrollLeft = 0;
+    }
+  }, [recommendations]);
+
   return (
     <Box id={`${camelize(title)}-list-anime`}>
       {!recommendations && !!param ? (
         <ListFetchedAnime title={title} param={param} />
       ) : (
-        <Grid container sx={style.animeList}>
+        <Grid container sx={style.animeList} ref={animeListRef}>
           {!!recommendations?.length ? (
             recommendations?.map((dtAnime) => (
               <AnimeCard
