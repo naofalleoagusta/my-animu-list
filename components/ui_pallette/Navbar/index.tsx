@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 
 import Drawer from "./components/Drawer";
-import Link from "../ui_pallette/Link";
+import Link from "../Link";
 
 const SLink = styled(Link)(() => ({
   color: "white",

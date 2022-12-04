@@ -5,7 +5,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider } from "@emotion/react";
 
-import Navbar from "../components/Navbar";
+import Navbar from "../components/ui_pallette/Navbar";
 
 import createEmotionCache from "../config/createEmotionCache";
 import theme from "../config/theme";

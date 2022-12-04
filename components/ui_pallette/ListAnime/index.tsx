@@ -2,14 +2,14 @@ import { Box, Grid, Typography } from "@mui/material";
 import isEqual from "lodash.isequal";
 import { memo, useEffect, useRef } from "react";
 
-import AnimeCard from "../ui_pallette/AnimeCard";
+import AnimeCard from "../AnimeCard";
 import ListFetchedAnime from "./components/ListFetchedAnime";
 
-import { camelize } from "../../helpers/camelize";
+import camelize from "../../../helpers/camelize";
 
-import { AnimeInputType } from "../../schema";
-import { StyleType } from "../../types";
-import { AnimeRecommendationType } from "../../types/anime";
+import { AnimeInputType } from "../../../schema";
+import { StyleType } from "../../../types";
+import { AnimeRecommendationType } from "../../../types/anime";
 
 type ListAnimeProps = {
   param?: AnimeInputType;

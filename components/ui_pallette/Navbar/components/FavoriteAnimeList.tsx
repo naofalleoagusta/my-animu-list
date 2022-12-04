@@ -2,10 +2,10 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { useRouter } from "next/router";
 
-import useFavorites from "../../../helpers/hooks/useFavorites";
-import Image from "../../ui_pallette/Image";
+import useFavorites from "../../../../helpers/hooks/useFavorites";
+import Image from "../../Image";
 import { Typography } from "@mui/material";
-import Button from "../../ui_pallette/Button";
+import Button from "../../Button";
 
 type FavoriteAnimeListProps = {
   toggleDrawer: () => void;
@@ -87,7 +87,7 @@ const FavoriteAnimeList = ({ toggleDrawer }: FavoriteAnimeListProps) => {
           </Grid>
         ))
       ) : (
-        <>You have not set any favourite anime, yet.</>
+        <>You have not set any favourite animez, yet.</>
       )}
       <Button
         sx={{ width: "100%", mt: "16px" }}

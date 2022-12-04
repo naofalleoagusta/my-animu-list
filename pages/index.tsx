@@ -9,7 +9,7 @@ import generateMetaTag from "../helpers/generateMetaTag";
 import { QueryListAnimeType } from "../types";
 import { APP_BASE_URL } from "../config";
 
-const ListAnime = dynamic(() => import("../components/ListAnime"), {
+const ListAnime = dynamic(() => import("../components/ui_pallette/ListAnime"), {
   suspense: true,
 });
 

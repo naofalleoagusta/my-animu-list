@@ -10,7 +10,7 @@ import useChangeRoute from "../../../../helpers/hooks/useChangeRoute";
 import { AnimeRecommendationType, AnimeType } from "../../../../types/anime";
 import Skeleton from "../../../ui_pallette/Skeleton";
 
-const ListAnime = dynamic(() => import("../../../ListAnime"), {
+const ListAnime = dynamic(() => import("../../../ui_pallette/ListAnime"), {
   suspense: true,
 });
 

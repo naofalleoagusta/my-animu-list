@@ -1,19 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 
-import Error from "../../ui_pallette/Error";
-import AnimeCard from "../../ui_pallette/AnimeCard";
+import Error from "../../Error";
+import AnimeCard from "../../AnimeCard";
 import ListAnimeSkeleton from "./ListAnimeSkeleton";
-import Pagination from "../../ui_pallette/Pagination";
+import Pagination from "../../Pagination";
 
-import useAnimes from "../../../helpers/hooks/useAnimes";
-import { camelize } from "../../../helpers/camelize";
-import scrollToView from "../../../helpers/scrollToView";
+import useAnimes from "../../../../helpers/hooks/useAnimes";
+import camelize from "../../../../helpers/camelize";
+import scrollToView from "../../../../helpers/scrollToView";
 
-import { AnimeInputType } from "../../../schema";
-import { StyleType } from "../../../types";
-import { PaginationType } from "../../../types/anime";
-import { Typography } from "@mui/material";
+import { AnimeInputType } from "../../../../schema";
+import { StyleType } from "../../../../types";
+import { PaginationType } from "../../../../types/anime";
 
 const style: StyleType = {
   animeList: {

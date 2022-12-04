@@ -1,8 +1,8 @@
 import Grid from "@mui/material/Grid";
 
-import Skeleton from "../../ui_pallette/Skeleton";
+import Skeleton from "../../Skeleton";
 
-import { style } from "../../ui_pallette/AnimeCard/AnimeCardStyle";
+import { style } from "../../AnimeCard/AnimeCardStyle";
 
 const ListAnimeSkeleton = () => {
   return (
