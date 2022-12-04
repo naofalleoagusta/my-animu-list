@@ -15,6 +15,11 @@ export default function AnimeDetail() {
       <Box
         sx={{
           transform: { xs: "translateY(-150px)", lg: "translateY(-130px)" },
+          paddingRight: {
+            xs: "16px",
+            sm: "24px",
+            md: "0",
+          },
         }}
       >
         <Typography
