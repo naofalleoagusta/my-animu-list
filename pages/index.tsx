@@ -11,7 +11,7 @@ import { QueryListAnimeType } from "../types";
 import { APP_BASE_URL } from "../config";
 
 const ListAnime = dynamic(() => import("../components/ui_pallette/ListAnime"), {
-  ssr: false,
+  suspense: true,
 });
 
 const Banner = dynamic(() => import("../components/home/components/Banner"), {
@@ -68,7 +68,7 @@ export default function Home() {
           rowGap: "24px",
         }}
       >
-        <Suspense fallback={<>yo</>}>
+        <Suspense fallback={<></>}>
           {QUERIES_LIST_ANIME.map((dtQuery, idx) => (
             <ListAnime
               param={dtQuery.param}
