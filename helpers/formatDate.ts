@@ -17,7 +17,7 @@ const formatDate = (date: string, showMonth?: boolean) => {
   const newDate = new Date(date);
   if (showMonth) {
     return `${newDate.getDate()} ${
-      MONTHS[newDate.getMonth()]
+      MONTHS?.[newDate.getMonth()] || NaN
     }, ${newDate.getFullYear()}`;
   }
   return `${newDate.getDate()}/${

@@ -7,7 +7,7 @@ import ScoreCard from "../ScoreCard";
 import { AnimeType } from "@/types/anime";
 import { style } from "./AnimeCardStyle";
 
-type AnimeCardProps = Pick<
+export type AnimeCardProps = Pick<
   AnimeType,
   "images" | "mal_id" | "score" | "scored_by" | "title"
 > & {
@@ -23,7 +23,7 @@ const AnimeCard = ({
   imageKey,
 }: AnimeCardProps) => {
   return (
-    <Grid item sx={style.root}>
+    <Grid item sx={style.root} id={`anime-card-${mal_id}`}>
       <Link sx={style.container} href={`/anime/${mal_id}`}>
         <Image
           src={images.webp.image_url}
@@ -32,6 +32,7 @@ const AnimeCard = ({
           height={318}
           width={225}
           keyValue={imageKey}
+          id={`anime-img-card-${mal_id}`}
         />
         {!!score && (
           <Box sx={style.scoreContainer} className="scoreContainer">

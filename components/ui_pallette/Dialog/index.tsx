@@ -28,7 +28,7 @@ const Dialog = ({
         <Button
           onClick={handleClose}
           id="dialog-close-btn"
-          ariaLabel="Dialog Close Button"
+          ariaLabel="Dialog Close"
           variant="outlined"
         >
           {closeText ?? "Close"}

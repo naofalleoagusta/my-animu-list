@@ -45,6 +45,7 @@ const Footer = () => {
               href="https://github.com/naofalleoagusta"
               target="_blank"
               rel="noopener noreferrer"
+              data-testid="github"
             >
               @naofalleoagusta
             </a>
@@ -53,6 +54,7 @@ const Footer = () => {
               href="https://nextjs.org/"
               target="_blank"
               rel="noopener noreferrer"
+              data-testid="tool"
             >
               Next.js
             </a>

@@ -15,6 +15,7 @@ const Skeleton = ({ width, height }: SkeletonProps) => {
       variant="rounded"
       animation="wave"
       sx={{ borderRadius: "15px" }}
+      data-testid="skeleton"
     />
   );
 };
