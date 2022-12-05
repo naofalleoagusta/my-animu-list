@@ -4,7 +4,7 @@ import IconButton from "@mui/material/IconButton";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import CloseIcon from "@mui/icons-material/Close";
 
-import Avatar from "../../Avatar";
+import Avatar from "@/components/ui_pallette/Avatar";
 import FavoriteAnimeList from "./FavoriteAnimeList";
 
 type DrawerProps = {

@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 
-import { StyleType } from "../../../types";
+import { StyleType } from "@/types/index";
 
 const style: StyleType = {
   heading: {

@@ -12,7 +12,7 @@ import camelize from "../../../../helpers/camelize";
 import scrollToView from "../../../../helpers/scrollToView";
 
 import { AnimeInputType } from "../../../../schema";
-import { StyleType } from "../../../../types";
+import { StyleType } from "../@/types/index";
 import { PaginationType } from "../../../../types/anime";
 
 const style: StyleType = {

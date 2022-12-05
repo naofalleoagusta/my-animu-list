@@ -5,9 +5,9 @@ import IconButton from "@mui/material/IconButton";
 import { useSnackbar } from "notistack";
 import dynamic from "next/dynamic";
 
-import useFavorites from "../../../helpers/hooks/useFavorites";
+import useFavorites from "@/helpers/hooks/useFavorites";
 
-import { FavoriteAnimeType, StyleType } from "../../../types";
+import { FavoriteAnimeType, StyleType } from "@/types/index";
 import Button from "../Button";
 
 const Dialog = dynamic(() => import("../Dialog"), { suspense: true });

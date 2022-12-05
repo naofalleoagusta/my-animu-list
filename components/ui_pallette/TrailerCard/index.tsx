@@ -6,9 +6,9 @@ import Typography from "@mui/material/Typography";
 import Button from "../Button";
 import Image from "../Image";
 
-import useChangeRoute from "../../../helpers/hooks/useChangeRoute";
+import useChangeRoute from "@/helpers/hooks/useChangeRoute";
 
-import { AnimeType } from "../../../types/anime";
+import { AnimeType } from "@/types/anime";
 
 type TrailerCardProps = Pick<AnimeType, "trailer" | "title">;
 

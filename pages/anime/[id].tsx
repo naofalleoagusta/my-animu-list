@@ -1,17 +1,17 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 
-import AnimeDetailBanner from "../../components/anime/components/AnimeDetailBanner";
-import PageLayout from "../../layouts/PageLayout";
-import AnimeDetailContent from "../../components/anime/components/AnimeDetailContent";
+import AnimeDetailBanner from "@/components/anime/components/AnimeDetailBanner";
+import PageLayout from "@/layouts/PageLayout";
+import AnimeDetailContent from "@/components/anime/components/AnimeDetailContent";
 
-import generateMetaTag from "../../helpers/generateMetaTag";
+import generateMetaTag from "@/helpers/generateMetaTag";
 
 import {
   AnimeRecommendationResType,
   AnimeRecommendationType,
   AnimeType,
-} from "../../types/anime";
-import { API_BASE_URL, APP_BASE_URL } from "../../config";
+} from "@/types/anime";
+import { API_BASE_URL, APP_BASE_URL } from "@/config/index";
 
 export default function AnimeDetail({
   anime,

@@ -2,9 +2,9 @@ import Typography from "@mui/material/Typography";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Grid from "@mui/material/Grid";
 
-import useFavorites from "../../../../helpers/hooks/useFavorites";
-import Button from "../../../ui_pallette/Button";
-import Link from "../../../ui_pallette/Link";
+import useFavorites from "@/helpers/hooks/useFavorites";
+import Button from "@/components/ui_pallette/Button";
+import Link from "@/components/ui_pallette/Link";
 import FavoriteCard from "../FavoriteCard";
 
 const FavoriteList = () => {

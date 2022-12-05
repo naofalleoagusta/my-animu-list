@@ -1,4 +1,4 @@
-import { AnimeInputType } from "../../../schema";
+import { AnimeInputType } from "@/schema/index";
 
 export const ANIMES_QUERY_PARAM: AnimeInputType = {
   limit: "5",

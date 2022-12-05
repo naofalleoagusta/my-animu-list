@@ -1,4 +1,4 @@
-import { StyleType } from "../../../types";
+import { StyleType } from "@/types/index";
 
 export const style: StyleType = {
   root: {

@@ -1,8 +1,8 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-import { AnimeType } from "../../../types/anime";
-import { StyleType } from "../../../types";
+import { AnimeType } from "@/types/anime";
+import { StyleType } from "@/types/index";
 
 type ScoreCardProps = Pick<AnimeType, "score" | "scored_by"> & {
   size?: "small" | "large";

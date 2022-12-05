@@ -7,7 +7,7 @@ import { ActionMeta } from "react-select";
 
 import Select from "../Select";
 
-import { StyleType } from "../../../types";
+import { StyleType } from "@/types/index";
 
 const style: StyleType = {
   paginationContainer: {

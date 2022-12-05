@@ -5,11 +5,11 @@ import { memo, useEffect, useRef } from "react";
 import AnimeCard from "../AnimeCard";
 import ListFetchedAnime from "./components/ListFetchedAnime";
 
-import camelize from "../../../helpers/camelize";
+import camelize from "@/helpers/camelize";
 
-import { AnimeInputType } from "../../../schema";
-import { StyleType } from "../../../types";
-import { AnimeRecommendationType } from "../../../types/anime";
+import { AnimeInputType } from "@/schema/index";
+import { StyleType } from "@/types/index";
+import { AnimeRecommendationType } from "@/types/anime";
 
 type ListAnimeProps = {
   param?: AnimeInputType;

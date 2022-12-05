@@ -1,7 +1,5 @@
 import Typography from "@mui/material/Typography";
 
-import { DetailType } from "../../../../../types/anime";
-
 type LabelType = {
   label: string;
   value: any | any[];

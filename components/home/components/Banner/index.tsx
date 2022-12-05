@@ -4,12 +4,11 @@ import { Box, Container } from "@mui/material";
 import { useState } from "react";
 
 import BannerCard from "./components/BannerCard";
-import Skeleton from "../../../ui_pallette/Skeleton";
-import Error from "../../../ui_pallette/Error";
-import UpperBanner from "../../../ui_pallette/UpperBanner";
-import SkeletonBanner from "../../../ui_pallette/UpperBanner/SkeletonBanner";
+import Error from "@/components/ui_pallette/Error";
+import UpperBanner from "@/components/ui_pallette/UpperBanner";
+import SkeletonBanner from "@/components/ui_pallette/UpperBanner/SkeletonBanner";
 
-import useAnimes from "../../../../helpers/hooks/useAnimes";
+import useAnimes from "@/helpers/hooks/useAnimes";
 
 import { ANIMES_QUERY_PARAM } from "../../constant";
 import "swiper/css";

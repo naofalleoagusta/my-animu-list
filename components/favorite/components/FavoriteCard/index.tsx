@@ -4,14 +4,14 @@ import Typography from "@mui/material/Typography";
 import { memo } from "react";
 import { styled } from "@mui/material";
 
-import Image from "../../../ui_pallette/Image";
-import Link from "../../../ui_pallette/Link";
-import ScoreCard from "../../../ui_pallette/ScoreCard";
-import Button from "../../../ui_pallette/Button";
-import FavoriteButton from "../../../ui_pallette/FavoriteButton";
+import Image from "@/components/ui_pallette/Image";
+import Link from "@/components/ui_pallette/Link";
+import ScoreCard from "@/components/ui_pallette/ScoreCard";
+import Button from "@/components/ui_pallette/Button";
+import FavoriteButton from "@/components/ui_pallette/FavoriteButton";
 
-import { FavoriteAnimeType } from "../../../../types";
-import { style } from "../../../ui_pallette/AnimeCard/AnimeCardStyle";
+import { FavoriteAnimeType } from "@/types/index";
+import { style } from "@/components/ui_pallette/AnimeCard/AnimeCardStyle";
 
 type FavoriteCardProps = {
   anime: FavoriteAnimeType;

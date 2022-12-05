@@ -1,20 +1,20 @@
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
-import PageLayout from "../layouts/PageLayout";
-import Section from "../components/ui_pallette/Section";
-import SkeletonBanner from "../components/ui_pallette/UpperBanner/SkeletonBanner";
+import PageLayout from "@/layouts/PageLayout";
+import Section from "@/components/ui_pallette/Section";
+import SkeletonBanner from "@/components/ui_pallette/UpperBanner/SkeletonBanner";
 
-import generateMetaTag from "../helpers/generateMetaTag";
+import generateMetaTag from "@/helpers/generateMetaTag";
 
-import { QueryListAnimeType } from "../types";
-import { APP_BASE_URL } from "../config";
+import { QueryListAnimeType } from "@/types/index";
+import { APP_BASE_URL } from "@/config/index";
 
-const ListAnime = dynamic(() => import("../components/ui_pallette/ListAnime"), {
+const ListAnime = dynamic(() => import("@/components/ui_pallette/ListAnime"), {
   suspense: true,
 });
 
-const Banner = dynamic(() => import("../components/home/components/Banner"), {
+const Banner = dynamic(() => import("@/components/home/components/Banner"), {
   suspense: true,
 });
 

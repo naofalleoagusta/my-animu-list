@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
-import FavoriteList from "../components/favorite/components/FavoriteList";
-import UpperBanner from "../components/ui_pallette/UpperBanner";
-import PageLayout from "../layouts/PageLayout";
+import FavoriteList from "@/components/favorite/components/FavoriteList";
+import UpperBanner from "@/components/ui_pallette/UpperBanner";
+import PageLayout from "@/layouts/PageLayout";
 
 const BANNER = "https://cdn.myanimelist.net/images/anime/1764/126627.jpg";
 

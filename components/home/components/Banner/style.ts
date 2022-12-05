@@ -1,4 +1,4 @@
-import { StyleType } from "../../../../types";
+import { StyleType } from "@/types/index";
 
 const style: StyleType = {
   bannerContainer: {

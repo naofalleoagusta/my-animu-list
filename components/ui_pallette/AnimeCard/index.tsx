@@ -4,7 +4,7 @@ import Image from "../Image";
 import Link from "../Link";
 import ScoreCard from "../ScoreCard";
 
-import { AnimeType } from "../../../types/anime";
+import { AnimeType } from "@/types/anime";
 import { style } from "./AnimeCardStyle";
 
 type AnimeCardProps = Pick<
