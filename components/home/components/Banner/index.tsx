@@ -7,6 +7,7 @@ import BannerCard from "./components/BannerCard";
 import Skeleton from "../../../ui_pallette/Skeleton";
 import Error from "../../../ui_pallette/Error";
 import UpperBanner from "../../../ui_pallette/UpperBanner";
+import SkeletonBanner from "../../../ui_pallette/UpperBanner/SkeletonBanner";
 
 import useAnimes from "../../../../helpers/hooks/useAnimes";
 
@@ -38,33 +39,7 @@ const HomeBanner = () => {
   }
 
   if (loading) {
-    return (
-      <Box sx={{ position: "relative" }}>
-        <UpperBanner
-          image={image}
-          sx={{
-            height: { xs: 375, sm: 400, md: 500, lg: 700 },
-            transition: "all 300ms ease-in-out",
-          }}
-        />
-        <Container
-          maxWidth="xl"
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%,-50%)",
-            height: { xs: "225px", sm: "300px", md: 400, lg: "550px" },
-          }}
-        >
-          <Skeleton
-            width="100%"
-            height="100%"
-            sx={{ bgColor: "primary.main" }}
-          />
-        </Container>
-      </Box>
-    );
+    return <SkeletonBanner />;
   }
 
   return (

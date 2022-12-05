@@ -3,6 +3,7 @@ import { Suspense } from "react";
 
 import PageLayout from "../layouts/PageLayout";
 import Section from "../components/ui_pallette/Section";
+import SkeletonBanner from "../components/ui_pallette/UpperBanner/SkeletonBanner";
 
 import generateMetaTag from "../helpers/generateMetaTag";
 
@@ -10,7 +11,7 @@ import { QueryListAnimeType } from "../types";
 import { APP_BASE_URL } from "../config";
 
 const ListAnime = dynamic(() => import("../components/ui_pallette/ListAnime"), {
-  suspense: true,
+  ssr: false,
 });
 
 const Banner = dynamic(() => import("../components/home/components/Banner"), {
@@ -46,7 +47,7 @@ export default function Home() {
   return (
     <PageLayout
       banner={
-        <Suspense>
+        <Suspense fallback={<SkeletonBanner />}>
           <Banner />
         </Suspense>
       }
@@ -67,7 +68,7 @@ export default function Home() {
           rowGap: "24px",
         }}
       >
-        <Suspense fallback={<></>}>
+        <Suspense fallback={<>yo</>}>
           {QUERIES_LIST_ANIME.map((dtQuery, idx) => (
             <ListAnime
               param={dtQuery.param}
