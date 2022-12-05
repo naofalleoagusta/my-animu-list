@@ -1,4 +1,4 @@
-import { Suspense, useMemo, useState } from "react";
+import { Suspense, useState } from "react";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import IconButton from "@mui/material/IconButton";
@@ -37,11 +37,7 @@ const FavoriteButton = ({ anime, backgroundColor }: FavoriteButtonProps) => {
 
   const { enqueueSnackbar } = useSnackbar();
 
-  const isFavorite = useMemo(() => {
-    return !!favoriteAnimes.find((dtAnime) => {
-      return dtAnime.mal_id === anime.mal_id;
-    });
-  }, [favoriteAnimes, anime.mal_id]);
+  const isFavorite = !!favoriteAnimes[anime.mal_id];
 
   const handleToggleAnime = () => {
     if (isFavorite) {

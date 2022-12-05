@@ -2,13 +2,15 @@ import Typography from "@mui/material/Typography";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Grid from "@mui/material/Grid";
 
-import useFavorites from "@/helpers/hooks/useFavorites";
+import useFavorites, { UseFavoritesType } from "@/helpers/hooks/useFavorites";
 import Button from "@/ui_pallette/Button";
 import Link from "@/ui_pallette/Link";
 import FavoriteCard from "../FavoriteCard";
 
+const selector = (state: UseFavoritesType) => state.getAnimes();
+
 const FavoriteList = () => {
-  const animes = useFavorites((store) => store.animes);
+  const animes = useFavorites(selector);
   if (!animes.length) {
     return (
       <>

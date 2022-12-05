@@ -2,17 +2,18 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { useRouter } from "next/router";
 
-import useFavorites from "@/helpers/hooks/useFavorites";
 import Image from "@/ui_pallette/Image";
 import { Typography } from "@mui/material";
 import Button from "@/ui_pallette/Button";
+
+import useFavorites from "@/helpers/hooks/useFavorites";
 
 type FavoriteAnimeListProps = {
   toggleDrawer: () => void;
 };
 
 const FavoriteAnimeList = ({ toggleDrawer }: FavoriteAnimeListProps) => {
-  const animes = useFavorites((state) => state.animes);
+  const animes = useFavorites((state) => state.getAnimes());
   const router = useRouter();
 
   const handleOnClickBtn = (id: number) => {
@@ -24,7 +25,6 @@ const FavoriteAnimeList = ({ toggleDrawer }: FavoriteAnimeListProps) => {
     router.push(`/favorite`);
     toggleDrawer();
   };
-
   const slicedAnimes = (animes || []).slice(
     animes.length > 3 ? animes.length - 3 : 0,
     animes.length
@@ -33,61 +33,63 @@ const FavoriteAnimeList = ({ toggleDrawer }: FavoriteAnimeListProps) => {
   return (
     <Grid container flexDirection="column" sx={{ gap: "12px", mt: "12px" }}>
       {!!slicedAnimes.length ? (
-        slicedAnimes.map((dtAnime) => (
-          <Grid
-            item
-            key={dtAnime.mal_id}
-            sx={() => ({
-              display: "flex",
-              flex: "nowrap",
-              gap: "12px",
-            })}
-          >
-            <Box
+        slicedAnimes.map((dtAnime) => {
+          return (
+            <Grid
+              item
+              key={dtAnime.mal_id}
               sx={() => ({
-                flexBasis: "80px",
-                flexShrink: 0,
-                "& > img": {
-                  borderRadius: "5px",
-                },
+                display: "flex",
+                flex: "nowrap",
+                gap: "12px",
               })}
             >
-              <Image
-                src={dtAnime.images.webp.image_url}
-                alt={`${dtAnime.title} small`}
-                keyValue={`${dtAnime.mal_id}`}
-                width={225}
-                height={319}
-              />
-            </Box>
-            <Box sx={{ flexGrow: 1 }}>
-              <Typography
-                sx={{
-                  fontWeight: 700,
-                  wordBreak: "break-all",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  display: "-webkit-box",
-                  WebkitLineClamp: "2",
-                  WebkitBoxOrient: "vertical",
-                  mb: "8px",
-                }}
+              <Box
+                sx={() => ({
+                  flexBasis: "80px",
+                  flexShrink: 0,
+                  "& > img": {
+                    borderRadius: "5px",
+                  },
+                })}
               >
-                {dtAnime.title}
-              </Typography>
-              <Button
-                id={`btn-detail-${dtAnime.mal_id}`}
-                onClick={() => handleOnClickBtn(dtAnime.mal_id)}
-                sx={{ width: "100%" }}
-                variant="outlined"
-              >
-                View Detail
-              </Button>
-            </Box>
-          </Grid>
-        ))
+                <Image
+                  src={dtAnime.images.webp.image_url}
+                  alt={`${dtAnime.title} small`}
+                  keyValue={`${dtAnime.mal_id}`}
+                  width={225}
+                  height={319}
+                />
+              </Box>
+              <Box sx={{ flexGrow: 1 }}>
+                <Typography
+                  sx={{
+                    fontWeight: 700,
+                    wordBreak: "break-all",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    display: "-webkit-box",
+                    WebkitLineClamp: "2",
+                    WebkitBoxOrient: "vertical",
+                    mb: "8px",
+                  }}
+                >
+                  {dtAnime.title}
+                </Typography>
+                <Button
+                  id={`btn-detail-${dtAnime.mal_id}`}
+                  onClick={() => handleOnClickBtn(dtAnime.mal_id)}
+                  sx={{ width: "100%" }}
+                  variant="outlined"
+                >
+                  View Detail
+                </Button>
+              </Box>
+            </Grid>
+          );
+        })
       ) : (
-        <>You have not set any favourite animez, yet.</>
+        <>You have not set any favourite animes, yet.</>
       )}
       <Button
         sx={{ width: "100%", mt: "16px" }}
