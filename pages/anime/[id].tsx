@@ -26,6 +26,7 @@ export default function AnimeDetail({
           description: anime.background || anime.title,
           image: anime.images.webp.image_url,
           url: `${APP_BASE_URL}anime/${anime.mal_id}`,
+          title: `${anime.title} | My Animu List`,
         })}
         description={anime.background || anime.title}
       >

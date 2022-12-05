@@ -53,6 +53,7 @@ export default function Home() {
       title="Home | My Animu List"
       metaTags={generateMetaTag({
         url: APP_BASE_URL,
+        title: "Home | My Animu List",
         description: description,
         image:
           "https://og-image.vercel.app/Home%20%7C%20My%20Animu%20List.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-black.svg",

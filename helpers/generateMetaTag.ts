@@ -1,18 +1,23 @@
 import { MetaTagsType } from "../types";
 
-type GenerateMetaTagType = {
-  description: string;
-  url: string;
-  image: string;
-};
+enum MetaPropsEnum {
+  TITLE = "title",
+  DESCRIPTION = "description",
+  URL = "url",
+  IMAGE = "image",
+}
 
-const metaProps = ["url", "description", "image"];
+type GenerateMetaTagType = {
+  [key in MetaPropsEnum]: string;
+};
 
 const generateMetaTag = (prop: GenerateMetaTagType): MetaTagsType => {
   const res: MetaTagsType = {};
-  metaProps.forEach((metaProp) => {
-    res[`og:${metaProp}`] = prop[metaProp as keyof GenerateMetaTagType];
-    res[`twitter:${metaProp}`] = prop[metaProp as keyof GenerateMetaTagType];
+  Object.keys(MetaPropsEnum).forEach((metaProp) => {
+    const keyValue = MetaPropsEnum[metaProp as keyof typeof MetaPropsEnum];
+    const keyMetaTag = keyValue as keyof GenerateMetaTagType;
+    res[`og:${keyValue}`] = prop[keyMetaTag];
+    res[`twitter:${keyValue}`] = prop[keyMetaTag];
   });
   return res;
 };
