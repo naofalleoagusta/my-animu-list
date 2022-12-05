@@ -41,23 +41,31 @@ export const getStaticProps: GetStaticProps<{
   anime: AnimeType | undefined;
   recommendations: AnimeRecommendationType[];
 }> = async ({ params }) => {
-  let anime: { data: AnimeType | undefined } = { data: undefined };
-  try {
-    const res = await fetch(`${API_BASE_URL}/${params?.id || 1}`);
-    anime = (await res.json()) as { data: AnimeType | undefined };
-  } catch (_) {}
+  const res = await fetch(`${API_BASE_URL}/${params?.id || 1}`);
+  const anime = (await res.json()) as { data: AnimeType };
+  if (!res.ok) {
+    if (res.status === 404) {
+      return {
+        notFound: true,
+      };
+    }
+    throw new Error(`Failed to fetch anime, received status ${res.status}`);
+  }
 
   let recommendationsRes: AnimeRecommendationType[] = [];
-  try {
-    const res = await fetch(
-      `${API_BASE_URL}/${params?.id || 1}/recommendations`
-    );
-    const recommendations = (await res.json()) as AnimeRecommendationResType;
+  const resRecomendation = await fetch(
+    `${API_BASE_URL}/${params?.id || "string"}/recommendations`
+  );
+  //somehow the recommendations API always return status ok 🤔
+  if (resRecomendation.status > 404) {
+    throw new Error(`Failed to fetch anime, received status ${res.status}`);
+  }
+  if (resRecomendation.status === 200) {
+    const recommendations =
+      (await resRecomendation.json()) as AnimeRecommendationResType;
     recommendationsRes = recommendations?.data.map(
       (dtRecommendation) => dtRecommendation.entry
     );
-  } catch (error) {
-    recommendationsRes = [];
   }
 
   return {
