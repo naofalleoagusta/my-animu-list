@@ -23,7 +23,8 @@
       "@/types/*": ["types/*"],
       "@/layouts/*": ["layouts/*"],
       "@/pages/*": ["pages/*"],
-      "@/styles/*": ["styles/*"]
+      "@/styles/*": ["styles/*"],
+      "@/ui_pallette/*": ["components/ui_pallette/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

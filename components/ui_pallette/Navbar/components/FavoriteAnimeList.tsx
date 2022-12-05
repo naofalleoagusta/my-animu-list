@@ -3,9 +3,9 @@ import Box from "@mui/material/Box";
 import { useRouter } from "next/router";
 
 import useFavorites from "@/helpers/hooks/useFavorites";
-import Image from "@/components/ui_pallette/Image";
+import Image from "@/ui_pallette/Image";
 import { Typography } from "@mui/material";
-import Button from "@/components/ui_pallette/Button";
+import Button from "@/ui_pallette/Button";
 
 type FavoriteAnimeListProps = {
   toggleDrawer: () => void;

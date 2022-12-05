@@ -4,9 +4,9 @@ import { Box, Container } from "@mui/material";
 import { useState } from "react";
 
 import BannerCard from "./components/BannerCard";
-import Error from "@/components/ui_pallette/Error";
-import UpperBanner from "@/components/ui_pallette/UpperBanner";
-import SkeletonBanner from "@/components/ui_pallette/UpperBanner/SkeletonBanner";
+import Error from "@/ui_pallette/Error";
+import UpperBanner from "@/ui_pallette/UpperBanner";
+import SkeletonBanner from "@/ui_pallette/UpperBanner/SkeletonBanner";
 
 import useAnimes from "@/helpers/hooks/useAnimes";
 

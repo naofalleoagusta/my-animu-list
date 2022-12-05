@@ -2,7 +2,7 @@ import { Box, Tab, Tabs } from "@mui/material";
 import { useState, Suspense } from "react";
 import dynamic from "next/dynamic";
 
-import TrailerCard from "@/components/ui_pallette/TrailerCard";
+import TrailerCard from "@/ui_pallette/TrailerCard";
 
 import generateA11yProps from "./helpers/generateA11yProps";
 import scrollToView from "@/helpers/scrollToView";
@@ -10,7 +10,7 @@ import useChangeRoute from "@/helpers/hooks/useChangeRoute";
 
 import { AnimeRecommendationType, AnimeType } from "@/types/anime";
 
-const ListAnime = dynamic(() => import("@/components/ui_pallette/ListAnime"), {
+const ListAnime = dynamic(() => import("@/ui_pallette/ListAnime"), {
   suspense: true,
 });
 

@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import { useEffect, useState } from "react";
 
-import Skeleton from "@/components/ui_pallette/Skeleton";
+import Skeleton from "@/ui_pallette/Skeleton";
 
 type TabPanelProps = {
   children?: React.ReactNode;

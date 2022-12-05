@@ -6,8 +6,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider } from "@emotion/react";
 import { SnackbarProvider } from "notistack";
 
-import Navbar from "@/components/ui_pallette/Navbar";
-import Footer from "@/components/ui_pallette/Footer";
+import Navbar from "@/ui_pallette/Navbar";
+import Footer from "@/ui_pallette/Footer";
 
 import createEmotionCache from "@/config/createEmotionCache";
 import theme from "@/config/theme";

@@ -1,9 +1,9 @@
 import { Box, Typography } from "@mui/material";
 
-import Link from "@/components/ui_pallette/Link";
-import UpperBanner from "@/components/ui_pallette/UpperBanner";
+import Link from "@/ui_pallette/Link";
+import UpperBanner from "@/ui_pallette/UpperBanner";
 import PageLayout from "@/layouts/PageLayout";
-import Button from "@/components/ui_pallette/Button";
+import Button from "@/ui_pallette/Button";
 
 const BANNER = "https://cdn.myanimelist.net/images/anime/1764/126627.jpg";
 
