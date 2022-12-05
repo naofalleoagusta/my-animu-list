@@ -73,7 +73,7 @@ export const getStaticProps: GetStaticProps<{
       anime: anime.data,
       recommendations: recommendationsRes,
     },
-    revalidate: 60, // In seconds
+    revalidate: 7200, // In seconds
     notFound: !anime.data,
   };
 };
