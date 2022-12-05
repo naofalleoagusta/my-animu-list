@@ -26,14 +26,27 @@ const HomeBanner = () => {
 
   if (error) {
     return (
-      <Container
-        maxWidth="lg"
-        sx={{
-          height: { xs: "225px", sm: "300px", md: 400, lg: "550px" },
-        }}
-      >
-        <Error />
-      </Container>
+      <Box sx={{ position: "relative" }}>
+        <UpperBanner
+          image=""
+          sx={{
+            height: { xs: 375, sm: 400, md: 500, lg: 700 },
+            transition: "all 300ms ease-in-out",
+          }}
+        />
+        <Container
+          maxWidth="xl"
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%,-50%)",
+            height: { xs: "225px", sm: "300px", md: 400, lg: "550px" },
+          }}
+        >
+          <Error />
+        </Container>
+      </Box>
     );
   }
 
