@@ -1,9 +1,11 @@
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
+import Grid from "@mui/material/Grid";
 
 import PageLayout from "@/layouts/PageLayout";
 import Section from "@/ui_pallette/Section";
 import SkeletonBanner from "@/ui_pallette/UpperBanner/SkeletonBanner";
+import ListAnimeSkeleton from "@/components/ui_pallette/ListAnime/components/ListAnimeSkeleton";
 
 import generateMetaTag from "@/helpers/generateMetaTag";
 
@@ -68,7 +70,26 @@ export default function Home() {
           rowGap: "24px",
         }}
       >
-        <Suspense fallback={<></>}>
+        <Suspense
+          fallback={
+            <Grid
+              container
+              sx={{
+                flexDirection: "row",
+                overflow: {
+                  xs: "auto",
+                  md: "hidden",
+                },
+                flexWrap: {
+                  xs: "nowrap",
+                  md: "wrap",
+                },
+              }}
+            >
+              <ListAnimeSkeleton />
+            </Grid>
+          }
+        >
           {QUERIES_LIST_ANIME.map((dtQuery, idx) => (
             <ListAnime
               param={dtQuery.param}

@@ -56,14 +56,14 @@ export const getStaticProps: GetStaticProps<{
   const resRecomendation = await fetch(
     `${API_BASE_URL}/${params?.id || "string"}/recommendations`
   );
-  //somehow the recommendations API always return status ok 🤔
+  //somehow the recommendations API always return status ok despite error🤔
   if (resRecomendation.status > 404) {
     throw new Error(`Failed to fetch anime, received status ${res.status}`);
   }
   if (resRecomendation.status === 200) {
     const recommendations =
       (await resRecomendation.json()) as AnimeRecommendationResType;
-    recommendationsRes = recommendations?.data.map(
+    recommendationsRes = (recommendations?.data || []).map(
       (dtRecommendation) => dtRecommendation.entry
     );
   }
