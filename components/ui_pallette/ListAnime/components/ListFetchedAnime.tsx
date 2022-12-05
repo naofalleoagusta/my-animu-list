@@ -7,13 +7,13 @@ import AnimeCard from "../../AnimeCard";
 import ListAnimeSkeleton from "./ListAnimeSkeleton";
 import Pagination from "../../Pagination";
 
-import useAnimes from "../../../../helpers/hooks/useAnimes";
-import camelize from "../../../../helpers/camelize";
-import scrollToView from "../../../../helpers/scrollToView";
+import useAnimes from "@/helpers/hooks/useAnimes";
+import camelize from "@/helpers/camelize";
+import scrollToView from "@/helpers/scrollToView";
 
-import { AnimeInputType } from "../../../../schema";
-import { StyleType } from "../@/types/index";
-import { PaginationType } from "../../../../types/anime";
+import { AnimeInputType } from "@/schema/index";
+import { StyleType } from "@/types/index";
+import { PaginationType } from "@/types/anime";
 
 const style: StyleType = {
   animeList: {
