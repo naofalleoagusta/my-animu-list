@@ -16,7 +16,10 @@ const generateMetaTag = (prop: GenerateMetaTagType): MetaTagsType => {
   Object.keys(MetaPropsEnum).forEach((metaProp) => {
     const keyValue = MetaPropsEnum[metaProp as keyof typeof MetaPropsEnum];
     const keyMetaTag = keyValue as keyof GenerateMetaTagType;
-    res[`og:${keyValue}`] = prop[keyMetaTag];
+    res[`og:${keyValue}`] =
+      keyValue === "description"
+        ? prop[keyMetaTag].substring(0, 35)
+        : prop[keyMetaTag];
     res[`twitter:${keyValue}`] = prop[keyMetaTag];
   });
   return res;
