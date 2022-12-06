@@ -1,11 +1,5 @@
 import { ThemeProvider } from "@mui/material";
-import {
-  act,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from "@testing-library/react";
+import { act, fireEvent, render, waitFor } from "@testing-library/react";
 
 import Navbar from ".";
 
@@ -48,21 +42,25 @@ describe("Navbar Test", () => {
     }));
   });
   it("renders navbar", async () => {
-    render(
+    const { getByRole } = render(
       <ThemeProvider theme={theme}>
         <Navbar />
       </ThemeProvider>
     );
-    await act(async () => {
-      const title = screen.getByRole("link", { name: "MyAnimuList" });
+    await act(() => {
+      const title = getByRole("link", { name: "MyAnimuList" });
       expect(title).toBeInTheDocument();
       expect(title.getAttribute("href")).toEqual("/");
 
-      const hamburgerBtn = screen.getByRole("button", {
+      const hamburgerBtn = getByRole("button", {
         name: "Navbar Button",
       });
       expect(hamburgerBtn).toBeInTheDocument();
       fireEvent.click(hamburgerBtn);
+      waitFor(() => {
+        const presentation = getByRole("presentation");
+        expect(presentation).toBeInTheDocument();
+      });
     });
   });
 });

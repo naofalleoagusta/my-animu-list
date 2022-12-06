@@ -36,6 +36,7 @@ const Drawer = ({ toggleDrawer, openDrawer }: DrawerProps) => {
         <IconButton
           onClick={toggleDrawer}
           sx={{ top: "32px", right: "24px", position: "absolute" }}
+          aria-label="Close Button"
         >
           <CloseIcon />
         </IconButton>
@@ -49,7 +50,7 @@ const Drawer = ({ toggleDrawer, openDrawer }: DrawerProps) => {
         >
           <Avatar />
           <Typography sx={{ flexGrow: 1, fontWeight: 700, fontSize: 18 }}>
-            Hello, User!{" "}
+            Hello, User!
           </Typography>
         </Box>
         <Typography sx={{ fontWeight: 700, fontSize: 20, marginTop: "20px" }}>

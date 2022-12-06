@@ -128,4 +128,23 @@ describe("ListAnime Test", () => {
       expect(imgCard).toBeInTheDocument();
     });
   });
+
+  // it("renders list of Top Airing Anime", () => {
+  //   render(
+  //     <ThemeProvider theme={theme}>
+  //       <ListAnime
+  //         param={query.param}
+  //         title={query.title}
+  //       />
+  //     </ThemeProvider>
+  //   );
+  //   const imgCard = screen.getAllByRole("img");
+  //   expect(imgCard.length).toBe(4);
+  //   recommendations.forEach((recommendation) => {
+  //     const heading = screen.getByText(recommendation.title);
+  //     const imgCard = screen.getByAltText(`${recommendation.title} alt`);
+  //     expect(heading).toBeInTheDocument();
+  //     expect(imgCard).toBeInTheDocument();
+  //   });
+  // });
 });

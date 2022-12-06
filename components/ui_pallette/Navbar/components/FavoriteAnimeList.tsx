@@ -89,7 +89,7 @@ const FavoriteAnimeList = ({ toggleDrawer }: FavoriteAnimeListProps) => {
           );
         })
       ) : (
-        <>You have not set any favourite animes, yet.</>
+        <>You have not set any favorite animes, yet.</>
       )}
       <Button
         sx={{ width: "100%", mt: "16px" }}
